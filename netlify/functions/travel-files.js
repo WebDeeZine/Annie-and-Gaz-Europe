@@ -39,7 +39,7 @@ function fileKey(day, id) {
 }
 
 async function readIndex(store, day) {
-  return (await store.get(indexKey(day), { type: "json", consistency: "strong" })) || [];
+  return (await store.get(indexKey(day), { type: "json" })) || [];
 }
 
 async function writeIndex(store, day, files) {
@@ -67,7 +67,7 @@ exports.handler = async (event) => {
       const files = await readIndex(store, day);
       const file = files.find((item) => item.id === params.id);
       if (!file) return json(404, { error: "File not found." });
-      const data = await store.get(fileKey(day, file.id), { type: "arrayBuffer", consistency: "strong" });
+      const data = await store.get(fileKey(day, file.id), { type: "arrayBuffer" });
       if (!data) return json(404, { error: "File data not found." });
       return {
         statusCode: 200,
