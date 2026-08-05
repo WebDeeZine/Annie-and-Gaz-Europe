@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="Europe 2026" name="apple-mobile-web-app-title"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<title>Europe 2026 Document</title>
+<style>
+:root{--bg:#080504;--panel:#130c09;--gold:#d7a522;--gold2:#ffdd6a;--text:#f5e4bd;--muted:#b7a484;--line:#50300d}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif}
+.header{position:sticky;top:0;z-index:20;background:linear-gradient(110deg,#920000,#c81937,#8d0000);border-bottom:2px solid var(--gold);padding:calc(10px + env(safe-area-inset-top)) 12px 10px}
+.topgrid{display:grid;gap:8px}
+.back{display:block;width:100%;border:1px solid var(--gold);background:#1a0d08;color:var(--text);border-radius:12px;padding:14px;font:inherit;text-align:center;text-decoration:none;font-weight:bold}
+.title{color:#fff1c9;text-align:center;font-weight:bold;font-size:.96rem}
+main{max-width:900px;margin:0 auto;padding:12px 10px 92px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:12px}
+.kicker{color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:.76rem;margin-bottom:6px}
+.summary{color:var(--muted);font-size:.92rem;margin:0}
+.page{background:#fff;border-radius:10px;overflow:hidden;margin-bottom:12px;border:1px solid #2d1d12}
+.page img{display:block;width:100%;height:auto;background:#fff}
+.pagecount{text-align:center;color:var(--muted);font-size:.8rem;margin:8px 0 12px}
+.footerbar{position:fixed;left:0;right:0;bottom:0;background:#120a07;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));z-index:20}
+.footerbar a{display:block;text-align:center;border:1px solid var(--gold);background:#1a0d08;color:var(--text);border-radius:12px;padding:14px;text-decoration:none;font-weight:bold}
+
+@media (max-width:768px){table th:last-child,table td:last-child{display:none}}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:10px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain}
+.lbclose{position:absolute;top:12px;right:18px;font-size:32px;color:white;background:none;border:none}
+.heroimg{cursor:zoom-in}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="topgrid">
+<a class="back" id="backTop" href="index.html">← Back to itinerary</a>
+<div class="title" id="docTitle">Document</div>
+</div>
+</header>
+<main>
+<section class="card">
+<div class="kicker">Original document</div>
+<p class="summary">This is the original PDF rendered as pages inside the itinerary app, so the Back button always remains available.</p>
+</section>
+<div id="pages"></div>
+</main>
+<div class="footerbar"><a id="backBottom" href="index.html">← Back to itinerary</a></div>
+<script>
+const manifest = {"docs/ann-marie-malaysia-airlines.pdf": ["doc_pages/ann-marie-malaysia-airlines/page-01.jpg", "doc_pages/ann-marie-malaysia-airlines/page-02.jpg"], "docs/barcelona-h10-montcada-20-oct.pdf": ["doc_pages/barcelona-h10-montcada-20-oct/page-01.jpg", "doc_pages/barcelona-h10-montcada-20-oct/page-02.jpg", "doc_pages/barcelona-h10-montcada-20-oct/page-03.jpg", "doc_pages/barcelona-h10-montcada-20-oct/page-04.jpg", "doc_pages/barcelona-h10-montcada-20-oct/page-05.jpg"], "docs/barcelona-h10-montcada-9-oct.pdf": ["doc_pages/barcelona-h10-montcada-9-oct/page-01.jpg", "doc_pages/barcelona-h10-montcada-9-oct/page-02.jpg", "doc_pages/barcelona-h10-montcada-9-oct/page-03.jpg", "doc_pages/barcelona-h10-montcada-9-oct/page-04.jpg", "doc_pages/barcelona-h10-montcada-9-oct/page-05.jpg"], "docs/barcelona-to-london-flight.pdf": ["doc_pages/barcelona-to-london-flight/page-01.jpg", "doc_pages/barcelona-to-london-flight/page-02.jpg"], "docs/celebrity-equinox-cruise.pdf": ["doc_pages/celebrity-equinox-cruise/page-01.jpg", "doc_pages/celebrity-equinox-cruise/page-02.jpg", "doc_pages/celebrity-equinox-cruise/page-03.jpg", "doc_pages/celebrity-equinox-cruise/page-04.jpg"], "docs/eurostar-london-paris.pdf": ["doc_pages/eurostar-london-paris/page-01.jpg", "doc_pages/eurostar-london-paris/page-02.jpg", "doc_pages/eurostar-london-paris/page-03.jpg", "doc_pages/eurostar-london-paris/page-04.jpg", "doc_pages/eurostar-london-paris/page-05.jpg"], "docs/gary-europe-flights.pdf": ["doc_pages/gary-europe-flights/page-01.jpg", "doc_pages/gary-europe-flights/page-02.jpg"], "docs/london-airbnb.pdf": ["doc_pages/london-airbnb/page-01.jpg", "doc_pages/london-airbnb/page-02.jpg", "doc_pages/london-airbnb/page-03.jpg", "doc_pages/london-airbnb/page-04.jpg", "doc_pages/london-airbnb/page-05.jpg"], "docs/macdonald-windsor.pdf": ["doc_pages/macdonald-windsor/page-01.jpg", "doc_pages/macdonald-windsor/page-02.jpg", "doc_pages/macdonald-windsor/page-03.jpg", "doc_pages/macdonald-windsor/page-04.jpg", "doc_pages/macdonald-windsor/page-05.jpg"], "docs/paris-airbnb-marais.pdf": ["doc_pages/paris-airbnb-marais/page-01.jpg", "doc_pages/paris-airbnb-marais/page-02.jpg", "doc_pages/paris-airbnb-marais/page-03.jpg"], "docs/tfn-noi-super.pdf": ["doc_pages/tfn-noi-super/page-01.jpg", "doc_pages/tfn-noi-super/page-02.jpg"], "docs/tgv-paris-barcelona.pdf": ["doc_pages/tgv-paris-barcelona/page-01.jpg", "doc_pages/tgv-paris-barcelona/page-02.jpg"], "docs/xcover-omio-protection.pdf": ["doc_pages/xcover-omio-protection/page-01.jpg", "doc_pages/xcover-omio-protection/page-02.jpg", "doc_pages/xcover-omio-protection/page-03.jpg", "doc_pages/xcover-omio-protection/page-04.jpg", "doc_pages/xcover-omio-protection/page-05.jpg"], "docs/barcelona-flight-date-of-birth-support.pdf": ["doc_pages/barcelona-flight-dob-support/page-01.jpg", "doc_pages/barcelona-flight-dob-support/page-02.jpg"], "docs/eurostar-booking-confirmation.pdf": ["doc_pages/eurostar-booking-confirmation/page-01.jpg", "doc_pages/eurostar-booking-confirmation/page-02.jpg", "doc_pages/eurostar-booking-confirmation/page-03.jpg", "doc_pages/eurostar-booking-confirmation/page-04.jpg"]};
+const params=new URLSearchParams(location.search);
+const file=params.get("file")||"";
+const title=params.get("title")||"Document";
+const returnDay=params.get("day")||sessionStorage.getItem("itineraryReturnDay")||"1";
+const returnScroll=params.get("scroll")||sessionStorage.getItem("itineraryReturnScroll")||"0";
+const returnHref=`index.html?day=${encodeURIComponent(returnDay)}&scroll=${encodeURIComponent(returnScroll)}`;
+document.getElementById("backTop").href=returnHref;
+document.getElementById("backBottom").href=returnHref;
+document.getElementById("docTitle").textContent=title;
+const pages=manifest[file]||[];
+const wrap=document.getElementById("pages");
+if(!pages.length){
+  wrap.innerHTML=`<section class="card"><p class="summary">Document pages were not found. Use Back to return to the itinerary.</p></section>`;
+}else{
+  wrap.innerHTML=`<div class="pagecount">${pages.length} page${pages.length===1?"":"s"}</div>`+
+    pages.map((src,i)=>`<div class="page"><img src="${src}" alt="${title} page ${i+1}" loading="${i<2?"eager":"lazy"}"></div>`).join("");
+}
+</script>
+<script>
+function openLB(src){
+ let lb=document.getElementById('lb');if(!lb){lb=document.createElement('div');lb.id='lb';lb.className='lightbox';lb.innerHTML='<button class="lbclose" onclick="closeLB()">&times;</button><img>';document.body.appendChild(lb);lb.onclick=function(e){if(e.target===lb)closeLB();}}
+ lb.querySelector('img').src=src;lb.classList.add('open');
+}
+function closeLB(){document.getElementById('lb').classList.remove('open');}
+</script></body>
+</html>

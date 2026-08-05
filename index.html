@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><title>Europe 2026</title>
+<style>
+:root{--bg:#080504;--panel:#1a0d08;--panel2:#101722;--gold:#d7a522;--gold2:#ffdd6a;--red:#a90505;--text:#f5e4bd;--muted:#b7a484;--line:#50300d;--blue:#07101d}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.45}a{color:inherit;text-decoration:none}.top{background:linear-gradient(110deg,#920000,#c81937,#8d0000);border-bottom:2px solid var(--gold);text-align:center;padding:16px 12px 17px;position:sticky;top:0;z-index:20}.booking{letter-spacing:.28em;color:var(--gold);font-size:.7rem}.title{font-size:1.55rem;font-weight:bold;margin:4px 0}.subtitle{font-size:.85rem;color:#ffe7b1}.days{display:flex;gap:8px;overflow-x:auto;padding:10px 10px 14px;background:#130c09;border-bottom:1px solid #29150d;position:sticky;top:84px;z-index:18;scrollbar-width:auto;scrollbar-color:#b98a24 #2a1710}.days::-webkit-scrollbar{height:10px}.days::-webkit-scrollbar-track{background:#2a1710;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(215,165,34,.18)}.days::-webkit-scrollbar-thumb{background:linear-gradient(90deg,#9d741b,#d7a522);border:2px solid #2a1710;border-radius:999px}.days::-webkit-scrollbar-thumb:hover{background:linear-gradient(90deg,#b98a24,#ffdd6a)}.daybtn{min-width:74px;background:#180f0a;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:8px 6px;text-align:center;font:inherit}.daybtn.active{background:#b10000;border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}.emoji{font-size:1.25rem;display:block}.dnum{color:var(--gold2);font-weight:bold;font-size:.8rem}.ddate{font-size:.7rem;color:var(--muted)}main{max-width:920px;margin:0 auto;padding:14px 12px 80px}.headline{display:flex;gap:10px;align-items:flex-start;margin:8px 0 14px}.bigemoji{font-size:2rem}h1,h2,h3{margin:0}.headline h2{color:var(--gold2);font-size:1.35rem}.headline p{margin:2px 0;color:var(--muted)}.progress{height:8px;background:#25140b;border-radius:99px;overflow:hidden;border:1px solid #4b2d10;margin-top:8px}.progress div{height:100%;background:linear-gradient(90deg,#d7a522,#ffdd6a)}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}.section-title{color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;margin:0 0 10px}.timeline{position:relative;padding-left:26px}.timeline:before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:#7d1111}.tl{position:relative;margin:0 0 12px}.tl:before{content:"";position:absolute;left:-23px;top:5px;width:11px;height:11px;border-radius:50%;background:#b10000;border:2px solid var(--gold)}.time{display:block;color:var(--gold2);font-weight:bold}.muted{color:var(--muted)}.weather{background:#111107}
+.weatherhead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px}
+.weatherhead strong{color:var(--gold2)}
+.weathergrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.weatherpill{background:#120b07;border:1px solid rgba(215,165,34,.25);border-radius:10px;padding:10px}
+.weatherpill small{display:block;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.weatherpill b{font-size:1.08rem;color:#fff1c9}
+.weatherstatus{color:var(--muted);font-size:.82rem;margin-top:8px}
+.weatherrefresh{border:1px solid rgba(215,165,34,.35);background:#1a0d08;color:var(--text);border-radius:999px;padding:6px 10px;font:inherit;font-size:.8rem}
+@media(max-width:640px){.weathergrid{grid-template-columns:1fr}}.linkgrid{display:grid;gap:9px}.linkitem{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#120b07;border:1px solid rgba(215,165,34,.25);border-radius:10px;padding:11px}.linkitem strong{color:var(--gold2);display:block}.linkitem small{display:block;color:var(--muted);margin-top:2px}.explore{display:grid;gap:10px}.explore a{display:block;background:#101722;border:1px solid #1f3c61;border-radius:12px;padding:13px}.explore strong{color:var(--gold2);display:block;font-size:1.02rem}.explore small{display:block;color:#b8c5d8;margin-top:3px}.quick4{display:grid;grid-template-columns:1fr 1fr;gap:9px}.quick4 a{background:#140c08;border:1px solid #3d250d;border-radius:10px;padding:11px;text-align:center}.accom strong,.port strong{color:var(--gold2)}.note ul{margin:0;padding-left:20px}.bottomnav{position:fixed;bottom:0;left:0;right:0;background:#120a07;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);z-index:30}.bottomnav a{text-align:center;padding:9px 4px;color:var(--muted);font-size:.76rem}@media(min-width:760px){.twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{margin-bottom:12px}.days{top:90px}}@media(max-width:420px){body{font-size:15px}.title{font-size:1.35rem}.booking{letter-spacing:.18em}.days{top:82px}.quick4{grid-template-columns:1fr 1fr}main{padding-left:10px;padding-right:10px}}
+.docgroup{margin-bottom:14px}.docgroup h4{margin:0 0 8px;color:var(--gold2);font-size:1rem}.docitem{display:block;background:#120b07;border:1px solid rgba(215,165,34,.25);border-radius:10px;padding:11px;margin-bottom:8px}.docitem strong{color:var(--gold2);display:block}.docitem small{display:block;color:var(--muted);margin-top:2px}.doccat{color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;margin-top:6px}
+.todaydocs{display:grid;gap:8px}.docitem{display:block;background:#120b07;border:1px solid rgba(215,165,34,.25);border-radius:10px;padding:11px}.docitem strong{color:var(--gold2);display:block}.docitem small{display:block;color:var(--muted);margin-top:2px}
+
+.notesbox textarea{
+  width:100%;
+  min-height:118px;
+  resize:vertical;
+  border-radius:10px;
+  border:1px solid rgba(215,165,34,.35);
+  background:#100905;
+  color:var(--text);
+  font:inherit;
+  padding:11px;
+  outline:none;
+}
+.notesbox textarea:focus{border-color:var(--gold)}
+.notesstatus{font-size:.72rem;color:var(--muted);margin-top:6px;text-align:right}
+
+.sharedfiles{margin-top:14px;padding-top:14px;border-top:1px solid rgba(215,165,34,.22)}
+.fileuploadrow{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.filepick{display:inline-block;background:#b10000;border:1px solid var(--gold);color:#fff1c9;border-radius:10px;padding:10px 12px;font:inherit;cursor:pointer}
+.filepick input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.filehint{color:var(--muted);font-size:.76rem}
+.filelist{display:grid;gap:8px;margin-top:12px}
+.sharedfile{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#120b07;border:1px solid rgba(215,165,34,.25);border-radius:10px;padding:10px}
+.sharedfile-main{min-width:0;flex:1}
+.sharedfile-name{display:block;color:var(--gold2);font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sharedfile-meta{display:block;color:var(--muted);font-size:.72rem;margin-top:2px}
+.sharedfile-actions{display:flex;gap:6px;flex-shrink:0}
+.sharedfile-actions a,.sharedfile-actions button{border:1px solid rgba(215,165,34,.35);background:#1a0d08;color:var(--text);border-radius:8px;padding:7px 9px;font:inherit;font-size:.78rem;cursor:pointer}
+.sharedfile-actions button{color:#ffd1d1;border-color:rgba(190,45,45,.55)}
+.filesstatus{font-size:.72rem;color:var(--muted);margin-top:8px}
+@media(max-width:520px){.sharedfile{align-items:flex-start}.sharedfile-actions{flex-direction:column}.sharedfile-actions a,.sharedfile-actions button{padding:6px 8px}}
+
+
+.docopen{width:100%;text-align:left;color:inherit;font:inherit;cursor:pointer}
+.docsheet{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.62);display:none;align-items:flex-end}
+.docsheet.show{display:flex}
+.docsheet-panel{width:100%;max-height:88vh;overflow:auto;background:#130c09;border-top:2px solid var(--gold);border-radius:18px 18px 0 0;padding:16px 14px 22px;box-shadow:0 -10px 40px rgba(0,0,0,.45)}
+.docsheet-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}
+.docsheet-title{color:var(--gold2);font-size:1.25rem;font-weight:bold}
+.docsheet-summary{color:var(--muted);margin:3px 0 0}
+.docsheet-close{background:#2a160d;border:1px solid var(--line);color:var(--text);border-radius:999px;padding:8px 12px;font:inherit}
+.docsheet-list{margin:0 0 14px;padding-left:20px;color:var(--text)}
+.docsheet-list li{margin-bottom:6px}
+.docsheet-actions{display:grid;gap:9px}
+.docsheet-actions a,.docsheet-actions button{display:block;text-align:center;background:#b10000;border:1px solid var(--gold);color:#fff1c9;border-radius:10px;padding:12px;font:inherit;text-decoration:none}
+.docsheet-actions button{background:#1a0d08;color:var(--text)}
+@media(min-width:760px){.docsheet{align-items:center;justify-content:center}.docsheet-panel{max-width:560px;border:1px solid var(--gold);border-radius:18px}}
+
+
+.cruiseimg{width:100%;border-radius:12px;border:1px solid rgba(215,165,34,.35);display:block;background:#0b111b;cursor:zoom-in;touch-action:manipulation}
+.cruiseimgwrap{display:block;background:none;border:0;padding:0;margin:0;width:100%;text-align:inherit}
+.movementwrap{overflow-x:auto}
+.movementtable{width:100%;border-collapse:collapse;font-size:.9rem}
+.movementtable th,.movementtable td{border-bottom:1px solid rgba(215,165,34,.22);padding:8px 7px;text-align:left;vertical-align:top}
+.movementtable th{color:var(--gold2);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;background:#120b07}
+.movementtable td:first-child{color:var(--gold2);font-weight:bold;width:32px}
+.movementtable td:nth-child(3),.movementtable td:nth-child(4){white-space:nowrap;color:#f7d98b}
+.porttips li{margin-bottom:6px}
+
+
+
+.mobilemovement{display:none}
+@media (max-width:768px){
+  .movementwrap{display:none}
+  .mobilemovement{display:block}
+  .mvstep{position:relative;margin:0 0 10px;padding:12px 12px 12px 46px;background:#120b07;border:1px solid rgba(215,165,34,.25);border-radius:12px}
+  .mvstep:before{content:attr(data-num);position:absolute;left:12px;top:13px;width:22px;height:22px;border-radius:50%;background:#b10000;border:1px solid var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:bold}
+  .mvroute{color:var(--gold2);font-weight:bold;margin-bottom:7px}
+  .mvmeta{display:flex;gap:8px;flex-wrap:wrap}
+  .mvmeta span{background:#101722;border:1px solid #1f3c61;border-radius:999px;padding:4px 8px;color:#d8e5f8;font-size:.82rem}
+}
+@media (min-width:769px){.movementwrap{display:block}}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;align-items:center;justify-content:center;padding:10px;overflow:auto;-webkit-overflow-scrolling:touch}
+.lightbox.open{display:flex}
+.lightbox img{max-width:96vw;max-height:92vh;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,.55)}
+.lbclose{position:fixed;top:12px;right:18px;font-size:34px;line-height:1;color:white;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);border-radius:999px;width:46px;height:46px;z-index:10000}
+@media (orientation:landscape){.lightbox img{max-width:96vw;max-height:96vh}}
+.heroimg{cursor:zoom-in}
+</style></head><body>
+<header class="top"><div class="booking">EUROPE 2026</div><div class="title">🇬🇧 Gary &amp; Ann-Marie</div><div class="subtitle">London · Paris · Barcelona · Celebrity Equinox · Windsor</div></header>
+<div class="days" id="days"></div>
+<main id="app"></main>
+<div aria-hidden="true" class="docsheet" id="docsheet">
+<div aria-labelledby="docsheet-title" aria-modal="true" class="docsheet-panel" role="dialog">
+<div class="docsheet-head">
+<div>
+<div class="docsheet-title" id="docsheet-title">Document</div>
+<div class="docsheet-summary" id="docsheet-summary"></div>
+</div>
+<button class="docsheet-close" id="docsheet-close" type="button">Close</button>
+</div>
+<ul class="docsheet-list" id="docsheet-list"></ul>
+<div class="docsheet-actions">
+<a href="#" id="docsheet-open" rel="noopener" target="_blank">View original document</a>
+<button id="docsheet-cancel" type="button">Back to itinerary</button>
+</div>
+</div>
+</div>
+<nav class="bottomnav"><a href="#schedule">Today</a><a href="#movement">Route</a><a href="#food">Food</a><a href="#quick">Links</a></nav>
+<script>
+
+
+
+const dayDocs={
+  1:[
+    ["✈️ Malaysia Airlines – Gary","BNE → KUL → LHR · Booking EL3L3O","docs/gary-europe-flights.pdf"],
+    ["✈️ Malaysia Airlines – Ann-Marie","BNE → KUL → LHR · Booking EL4GXN","docs/ann-marie-malaysia-airlines.pdf"]
+  ],
+  2:[
+    ["✈️ Malaysia Airlines arrival details","London arrival reference","docs/gary-europe-flights.pdf"],
+    ["🏨 London Airbnb","29 Sept–6 Oct · 36 Domonic Dr","docs/london-airbnb.pdf"]
+  ],
+  9:[
+    ["🎫 Eurostar tickets","London St Pancras → Paris Gare du Nord · Ref 4QQKRP","docs/eurostar-london-paris.pdf"],
+    ["📄 Eurostar booking confirmation","Original booking confirmation · Ref 4QQKRP","docs/eurostar-booking-confirmation.pdf"],
+    ["🏨 Paris Airbnb","6–9 Oct · Marais apartment","docs/paris-airbnb-marais.pdf"]
+  ],
+  12:[
+    ["🚄 TGV ticket","Paris Gare de Lyon → Barcelona Sants · Ref 4FXXBQ","docs/tgv-paris-barcelona.pdf"],
+    ["🏨 H10 Montcada Barcelona","9–10 Oct · Confirmation 6491253602","docs/barcelona-h10-montcada-9-oct.pdf"],
+    ["🛡️ XCover protection","Omio cancellation protection · FYPCB-X7MQX-INS","docs/xcover-omio-protection.pdf"]
+  ],
+  13:[
+    ["🚢 Celebrity Equinox cruise","Reservation 4634070 · Cabin 8302","docs/celebrity-equinox-cruise.pdf"]
+  ],
+  23:[
+    ["🏨 H10 Montcada Barcelona","20–21 Oct · Confirmation 6491286629","docs/barcelona-h10-montcada-20-oct.pdf"]
+  ],
+  24:[
+    ["✈️ Barcelona → London Gatwick","Vueling / Iberia IB5901 · Booking J2S9J","docs/barcelona-to-london-flight.pdf"],
+    ["📄 DOB correction support chat","Ann-Marie: birth year 1951 should be 1950","docs/barcelona-flight-date-of-birth-support.pdf"],
+    ["🏨 Macdonald Windsor","21–22 Oct · Confirmation 5158715572","docs/macdonald-windsor.pdf"]
+  ],
+  25:[
+    ["✈️ Malaysia Airlines return","LHR → KUL → BNE · Booking EL3L3O","docs/gary-europe-flights.pdf"],
+    ["✈️ Malaysia Airlines return – Ann-Marie","LHR → KUL → BNE · Booking EL4GXN","docs/ann-marie-malaysia-airlines.pdf"]
+  ],
+  26:[
+    ["✈️ Malaysia Airlines return","KUL → BNE · Booking EL3L3O","docs/gary-europe-flights.pdf"],
+    ["✈️ Malaysia Airlines return – Ann-Marie","KUL → BNE · Booking EL4GXN","docs/ann-marie-malaysia-airlines.pdf"]
+  ]
+};
+function renderTodayDocs(d){
+  const docs=dayDocs[d.n]||[];
+  if(!docs.length) return "";
+  return `<div class="card" id="docs"><h3 class="section-title">Today's Documents</h3><div class="todaydocs">
+    ${docs.map(([name,detail,file])=>`<button type="button" class="docitem docopen" data-file="${file}" data-name="${name}" data-detail="${detail}"><strong>${name}</strong><small>${detail}</small></button>`).join("")}
+  </div></div>`;
+}
+
+
+const docInfo={
+  "docs/gary-europe-flights.pdf":{icon:"✈️",title:"Malaysia Airlines – Gary",summary:"Business class flights via Kuala Lumpur.",details:["Outbound: Brisbane → Kuala Lumpur → London Heathrow","Return: London Heathrow → Kuala Lumpur → Brisbane","Use this for airline booking and ticket reference."]},
+  "docs/ann-marie-malaysia-airlines.pdf":{icon:"✈️",title:"Malaysia Airlines – Ann-Marie",summary:"Business class flights via Kuala Lumpur.",details:["Outbound and return Malaysia Airlines booking details","Use this for airline booking and ticket reference."]},
+  "docs/barcelona-to-london-flight.pdf":{icon:"✈️",title:"Barcelona → London Gatwick",summary:"Vueling / Iberia IB5901 · Booking J2S9J.",details:["Wed 21 Oct · 11:15 Barcelona → 12:40 London Gatwick","Direct · 2h 25m","Includes 1 personal item, 1 cabin bag and 1 checked bag per passenger."]},
+  "docs/barcelona-flight-date-of-birth-support.pdf":{icon:"📄",title:"Booking Support Chat – Date of Birth Correction",summary:"Supporting transcript for Ann-Marie's Barcelona flight booking.",details:["Ann-Marie's birth year was entered as 1951 instead of 1950.","Booking.com / Gotogate advised that they could not amend it through the booking.","They advised correcting it during online check-in or contacting the airline directly if required.","Keep this transcript available at check-in."]},
+  "docs/london-airbnb.pdf":{icon:"🏨",title:"London Airbnb",summary:"29 Sept – 6 Oct · 36 Domonic Dr, London SE9 3LJ.",details:["Beautiful house in London hosted by Sarah","Check-in after 4:00 pm · checkout by 11:00 am","Confirmation HMD4CWF3PS","Self check-in with key safe."]},
+  "docs/paris-airbnb-marais.pdf":{icon:"🏨",title:"Paris Airbnb – Marais",summary:"6–9 Oct · 37 Rue de Montmorency, 75003 Paris.",details:["Arthémis – 2 Bedrooms – Marais Village","Check-in 3:00 pm · checkout 11:00 am","Hosts Rémy / Gaylor."]},
+  "docs/barcelona-h10-montcada-9-oct.pdf":{icon:"🏨",title:"H10 Montcada Barcelona",summary:"9–10 Oct · Via Laietana 24, Ciutat Vella.",details:["Confirmation 6491253602","Check-in from 3:00 pm · checkout until 12:00 pm","Non-refundable booking","City tax payable at property."]},
+  "docs/barcelona-h10-montcada-20-oct.pdf":{icon:"🏨",title:"H10 Montcada Barcelona",summary:"20–21 Oct · Via Laietana 24, Ciutat Vella.",details:["Confirmation 6491286629","Check-in from 3:00 pm · checkout until 12:00 pm","Total €240.24 · non-refundable","City tax payable at property."]},
+  "docs/macdonald-windsor.pdf":{icon:"🏨",title:"Macdonald Windsor",summary:"21–22 Oct · 23 High Street, Windsor SL4 1LH.",details:["Confirmation 5158715572","Check-in 3:00 pm–12:00 am · checkout 6:00–11:00 am","Pay at property","Free cancellation until 19 Oct 2026 11:59 pm BST."]},
+  "docs/eurostar-london-paris.pdf":{icon:"🎫",title:"Eurostar London → Paris",summary:"6 Oct · Reference 4QQKRP · Actual tickets.",details:["11:31 London St Pancras → 14:59 Paris Gare du Nord","Train 9022 · Eurostar Standard","Gary: Coach 9 Seat 23","Ann-Marie: Coach 9 Seat 24","Arrive by 10:16; ticket gates close 30 minutes before departure."]},
+  "docs/eurostar-booking-confirmation.pdf":{icon:"📄",title:"Eurostar Booking Confirmation",summary:"Original booking confirmation · Reference 4QQKRP.",details:["London St Pancras → Paris Gare du Nord","Tuesday 6 October 2026","Retained separately from the actual passenger tickets."]},
+  "docs/tgv-paris-barcelona.pdf":{icon:"🚄",title:"TGV Paris → Barcelona",summary:"9 Oct · Ref 4FXXBQ.",details:["07:42 Paris Gare de Lyon → 14:32 Barcelona Sants","SNCF TGV INOUI 9713 · 1st Class","Coach 12 Upper · Seats 253 and 254","Bring ID with tickets."]},
+  "docs/celebrity-equinox-cruise.pdf":{icon:"🚢",title:"Celebrity Equinox Cruise",summary:"10–20 Oct · Reservation 4634070 · Cabin 8302.",details:["Celebrity Equinox · Veranda V2 cabin","Barcelona round trip · 10 nights","Late dining confirmed","Online check-in opens 45 days before sailing and must be completed at least 5 days before."]},
+  "docs/xcover-omio-protection.pdf":{icon:"🛡️",title:"XCover / Omio Protection",summary:"Reference FYPCB-X7MQX-INS.",details:["Protection period: 14 May 2026 to 9 Oct 2026","Trip Cancellation Protection for the Spain trip","Includes optional eSIM offer."]},
+  "docs/tfn-noi-super.pdf":{icon:"📄",title:"TFN Notice of Intent",summary:"Admin document.",details:["ATO notice of intent to claim or vary a deduction for personal super contributions."]}
+};
+
+const days=[{"n":1,"date":"Mon 28 Sept","emoji":"✈️","title":"Brisbane → Kuala Lumpur","sub":"Departure day","loc":"Kuala Lumpur","schedule":[["00:05","MH274 departs Brisbane Terminal I"],["06:35","Arrive Kuala Lumpur Terminal 1"],["16h 45m","Full-day KUL stopover — lounge, rest, or quick city option"],["23:20","MH002 departs Kuala Lumpur for London"]],"accom":null,"transport":"Malaysia Airlines MH274 + MH002 · Booking EL3L3O / EL4GXN","port":null,"explore":[["Visit Kuala Lumpur","Official Kuala Lumpur visitor ideas","https://visitkualalumpur.com/"],["Malaysia Truly Asia","Official Malaysia tourism site","https://www.malaysia.travel/"],["Time Out Kuala Lumpur","Food, culture and things to do","https://www.timeout.com/kuala-lumpur"],["KL Hop-On Hop-Off","Easy city sightseeing option if the timing works","https://www.myhoponhopoff.com/kl/"]],"food_base":"Kuala Lumpur city centre","notes":["Long stopover: decide closer to travel whether to stay airside or briefly enter Kuala Lumpur.","Keep passport, onward boarding pass and any lounge details handy."],"cruise":false,"origin":"Kuala Lumpur city centre","quick":[],"weather":"https://www.google.com/search?q=weather%20Kuala%20Lumpur","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Kuala%20Lumpur%20city%20centre"],["Coffee","https://www.google.com/search?q=best%20coffee%20Kuala%20Lumpur%20city%20centre"],["Bakery","https://www.google.com/search?q=best%20bakery%20Kuala%20Lumpur%20city%20centre"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Kuala%20Lumpur%20city%20centre"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Kuala%20Lumpur%20city%20centre"],["Dessert","https://www.google.com/search?q=best%20dessert%20Kuala%20Lumpur%20city%20centre"]]},{"n":2,"date":"Tue 29 Sept","emoji":"🇬🇧","title":"Arrive London","sub":"Settle into London base","loc":"London","schedule":[["05:55","Arrive London Heathrow Terminal 4"],["Morning","Immigration, baggage, coffee and transfer"],["10:00","Early check-in may be possible if host confirms closer to arrival"],["16:00","Official Airbnb check-in"],["Evening","Easy local dinner and early night"]],"accom":{"name":"Beautiful house in London","address":"36 Domonic Dr, London SE9 3LJ, UK","check":"Check-in after 4:00 pm · Check-out by 11:00 am","extra":"Self check-in with key safe · Host Sarah"},"transport":"Transfer Heathrow → 36 Domonic Dr. Taxi/Uber likely easiest with luggage.","port":null,"explore":[["Visit London","Official London visitor guide","https://www.visitlondon.com/"],["Time Out London","Neighbourhood guides, current events and things to do","https://www.timeout.com/london"],["Londonist","Local walks, hidden corners and practical London ideas","https://londonist.com/"],["Atlas Obscura London","Unusual and lesser-known places","https://www.atlasobscura.com/things-to-do/london-england"],["Visit Greenwich","Useful ideas close to your south-east London base","https://www.visitgreenwich.org.uk/"]],"food_base":"Eltham Greenwich London","notes":["Sarah said she will try for 10am check-in if no guests are checking out."],"cruise":false,"origin":"36 Domonic Dr, London SE9 3LJ, UK","quick":[["🚉 Mottingham Station","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Mottingham%20Station%2C%20London%20SE9"],["🚌 Domonic Drive Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Domonic%20Drive%20bus%20stop%2C%20London%20SE9"],["🛒 Co-op Food","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Co-op%20Food%20Mottingham%2C%20London%20SE9"],["🍺 The Dutch House","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=The%20Dutch%20House%2C%20Sidcup%20Road%2C%20London%20SE9"]],"weather":"https://www.google.com/search?q=weather%20London","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Eltham%20Greenwich%20London"],["Coffee","https://www.google.com/search?q=best%20coffee%20Eltham%20Greenwich%20London"],["Bakery","https://www.google.com/search?q=best%20bakery%20Eltham%20Greenwich%20London"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Eltham%20Greenwich%20London"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Eltham%20Greenwich%20London"],["Dessert","https://www.google.com/search?q=best%20dessert%20Eltham%20Greenwich%20London"]]},{"n":3,"date":"Wed 30 Sept","emoji":"🏰","title":"London","sub":"London exploring day","loc":"London","schedule":[["Morning","Choose one main London area"],["Lunch","Use Food links for current options"],["Afternoon","Local walk, museum or Thames / Greenwich option"],["Evening","Pub or easy dinner near accommodation"]],"accom":{"name":"Beautiful house in London","address":"36 Domonic Dr, London SE9 3LJ, UK","check":"Check-in after 4:00 pm · Check-out by 11:00 am","extra":"Self check-in with key safe · Host Sarah"},"transport":"Use Elizabeth line / Tube / buses depending on day plan.","port":null,"explore":[["Visit London","Official London visitor guide","https://www.visitlondon.com/"],["Time Out London","Neighbourhood guides, current events and things to do","https://www.timeout.com/london"],["Londonist","Local walks, hidden corners and practical London ideas","https://londonist.com/"],["Atlas Obscura London","Unusual and lesser-known places","https://www.atlasobscura.com/things-to-do/london-england"],["Visit Greenwich","Useful ideas close to your south-east London base","https://www.visitgreenwich.org.uk/"]],"food_base":"Eltham Greenwich London","notes":["Keep days flexible; use the Explore links rather than over-planning."],"cruise":false,"origin":"36 Domonic Dr, London SE9 3LJ, UK","quick":[["🚉 Mottingham Station","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Mottingham%20Station%2C%20London%20SE9"],["🚌 Domonic Drive Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Domonic%20Drive%20bus%20stop%2C%20London%20SE9"],["🛒 Co-op Food","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Co-op%20Food%20Mottingham%2C%20London%20SE9"],["🍺 The Dutch House","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=The%20Dutch%20House%2C%20Sidcup%20Road%2C%20London%20SE9"]],"weather":"https://www.google.com/search?q=weather%20London","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Eltham%20Greenwich%20London"],["Coffee","https://www.google.com/search?q=best%20coffee%20Eltham%20Greenwich%20London"],["Bakery","https://www.google.com/search?q=best%20bakery%20Eltham%20Greenwich%20London"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Eltham%20Greenwich%20London"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Eltham%20Greenwich%20London"],["Dessert","https://www.google.com/search?q=best%20dessert%20Eltham%20Greenwich%20London"]]},{"n":4,"date":"Thu 1 Oct","emoji":"🏰","title":"London","sub":"London exploring day","loc":"London","schedule":[["Morning","Choose one main London area"],["Lunch","Use Food links for current options"],["Afternoon","Local walk, museum or Thames / Greenwich option"],["Evening","Pub or easy dinner near accommodation"]],"accom":{"name":"Beautiful house in London","address":"36 Domonic Dr, London SE9 3LJ, UK","check":"Check-in after 4:00 pm · Check-out by 11:00 am","extra":"Self check-in with key safe · Host Sarah"},"transport":"Use Elizabeth line / Tube / buses depending on day plan.","port":null,"explore":[["Visit London","Official London visitor guide","https://www.visitlondon.com/"],["Time Out London","Neighbourhood guides, current events and things to do","https://www.timeout.com/london"],["Londonist","Local walks, hidden corners and practical London ideas","https://londonist.com/"],["Atlas Obscura London","Unusual and lesser-known places","https://www.atlasobscura.com/things-to-do/london-england"],["Visit Greenwich","Useful ideas close to your south-east London base","https://www.visitgreenwich.org.uk/"]],"food_base":"Eltham Greenwich London","notes":["Keep days flexible; use the Explore links rather than over-planning."],"cruise":false,"origin":"36 Domonic Dr, London SE9 3LJ, UK","quick":[["🚉 Mottingham Station","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Mottingham%20Station%2C%20London%20SE9"],["🚌 Domonic Drive Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Domonic%20Drive%20bus%20stop%2C%20London%20SE9"],["🛒 Co-op Food","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Co-op%20Food%20Mottingham%2C%20London%20SE9"],["🍺 The Dutch House","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=The%20Dutch%20House%2C%20Sidcup%20Road%2C%20London%20SE9"]],"weather":"https://www.google.com/search?q=weather%20London","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Eltham%20Greenwich%20London"],["Coffee","https://www.google.com/search?q=best%20coffee%20Eltham%20Greenwich%20London"],["Bakery","https://www.google.com/search?q=best%20bakery%20Eltham%20Greenwich%20London"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Eltham%20Greenwich%20London"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Eltham%20Greenwich%20London"],["Dessert","https://www.google.com/search?q=best%20dessert%20Eltham%20Greenwich%20London"]]},{"n":5,"date":"Fri 2 Oct","emoji":"🏰","title":"London","sub":"London exploring day","loc":"London","schedule":[["Morning","Choose one main London area"],["Lunch","Use Food links for current options"],["Afternoon","Local walk, museum or Thames / Greenwich option"],["Evening","Pub or easy dinner near accommodation"]],"accom":{"name":"Beautiful house in London","address":"36 Domonic Dr, London SE9 3LJ, UK","check":"Check-in after 4:00 pm · Check-out by 11:00 am","extra":"Self check-in with key safe · Host Sarah"},"transport":"Use Elizabeth line / Tube / buses depending on day plan.","port":null,"explore":[["Visit London","Official London visitor guide","https://www.visitlondon.com/"],["Time Out London","Neighbourhood guides, current events and things to do","https://www.timeout.com/london"],["Londonist","Local walks, hidden corners and practical London ideas","https://londonist.com/"],["Atlas Obscura London","Unusual and lesser-known places","https://www.atlasobscura.com/things-to-do/london-england"],["Visit Greenwich","Useful ideas close to your south-east London base","https://www.visitgreenwich.org.uk/"]],"food_base":"Eltham Greenwich London","notes":["Keep days flexible; use the Explore links rather than over-planning."],"cruise":false,"origin":"36 Domonic Dr, London SE9 3LJ, UK","quick":[["🚉 Mottingham Station","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Mottingham%20Station%2C%20London%20SE9"],["🚌 Domonic Drive Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Domonic%20Drive%20bus%20stop%2C%20London%20SE9"],["🛒 Co-op Food","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Co-op%20Food%20Mottingham%2C%20London%20SE9"],["🍺 The Dutch House","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=The%20Dutch%20House%2C%20Sidcup%20Road%2C%20London%20SE9"]],"weather":"https://www.google.com/search?q=weather%20London","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Eltham%20Greenwich%20London"],["Coffee","https://www.google.com/search?q=best%20coffee%20Eltham%20Greenwich%20London"],["Bakery","https://www.google.com/search?q=best%20bakery%20Eltham%20Greenwich%20London"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Eltham%20Greenwich%20London"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Eltham%20Greenwich%20London"],["Dessert","https://www.google.com/search?q=best%20dessert%20Eltham%20Greenwich%20London"]]},{"n":6,"date":"Sat 3 Oct","emoji":"🏰","title":"London","sub":"London exploring day","loc":"London","schedule":[["Morning","Choose one main London area"],["Lunch","Use Food links for current options"],["Afternoon","Local walk, museum or Thames / Greenwich option"],["Evening","Pub or easy dinner near accommodation"]],"accom":{"name":"Beautiful house in London","address":"36 Domonic Dr, London SE9 3LJ, UK","check":"Check-in after 4:00 pm · Check-out by 11:00 am","extra":"Self check-in with key safe · Host Sarah"},"transport":"Use Elizabeth line / Tube / buses depending on day plan.","port":null,"explore":[["Visit London","Official London visitor guide","https://www.visitlondon.com/"],["Time Out London","Neighbourhood guides, current events and things to do","https://www.timeout.com/london"],["Londonist","Local walks, hidden corners and practical London ideas","https://londonist.com/"],["Atlas Obscura London","Unusual and lesser-known places","https://www.atlasobscura.com/things-to-do/london-england"],["Visit Greenwich","Useful ideas close to your south-east London base","https://www.visitgreenwich.org.uk/"]],"food_base":"Eltham Greenwich London","notes":["Keep days flexible; use the Explore links rather than over-planning."],"cruise":false,"origin":"36 Domonic Dr, London SE9 3LJ, UK","quick":[["🚉 Mottingham Station","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Mottingham%20Station%2C%20London%20SE9"],["🚌 Domonic Drive Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Domonic%20Drive%20bus%20stop%2C%20London%20SE9"],["🛒 Co-op Food","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Co-op%20Food%20Mottingham%2C%20London%20SE9"],["🍺 The Dutch House","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=The%20Dutch%20House%2C%20Sidcup%20Road%2C%20London%20SE9"]],"weather":"https://www.google.com/search?q=weather%20London","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Eltham%20Greenwich%20London"],["Coffee","https://www.google.com/search?q=best%20coffee%20Eltham%20Greenwich%20London"],["Bakery","https://www.google.com/search?q=best%20bakery%20Eltham%20Greenwich%20London"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Eltham%20Greenwich%20London"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Eltham%20Greenwich%20London"],["Dessert","https://www.google.com/search?q=best%20dessert%20Eltham%20Greenwich%20London"]]},{"n":7,"date":"Sun 4 Oct","emoji":"🏰","title":"London","sub":"London exploring day","loc":"London","schedule":[["Morning","Choose one main London area"],["Lunch","Use Food links for current options"],["Afternoon","Local walk, museum or Thames / Greenwich option"],["Evening","Pub or easy dinner near accommodation"]],"accom":{"name":"Beautiful house in London","address":"36 Domonic Dr, London SE9 3LJ, UK","check":"Check-in after 4:00 pm · Check-out by 11:00 am","extra":"Self check-in with key safe · Host Sarah"},"transport":"Use Elizabeth line / Tube / buses depending on day plan.","port":null,"explore":[["Visit London","Official London visitor guide","https://www.visitlondon.com/"],["Time Out London","Neighbourhood guides, current events and things to do","https://www.timeout.com/london"],["Londonist","Local walks, hidden corners and practical London ideas","https://londonist.com/"],["Atlas Obscura London","Unusual and lesser-known places","https://www.atlasobscura.com/things-to-do/london-england"],["Visit Greenwich","Useful ideas close to your south-east London base","https://www.visitgreenwich.org.uk/"]],"food_base":"Eltham Greenwich London","notes":["Keep days flexible; use the Explore links rather than over-planning."],"cruise":false,"origin":"36 Domonic Dr, London SE9 3LJ, UK","quick":[["🚉 Mottingham Station","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Mottingham%20Station%2C%20London%20SE9"],["🚌 Domonic Drive Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Domonic%20Drive%20bus%20stop%2C%20London%20SE9"],["🛒 Co-op Food","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Co-op%20Food%20Mottingham%2C%20London%20SE9"],["🍺 The Dutch House","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=The%20Dutch%20House%2C%20Sidcup%20Road%2C%20London%20SE9"]],"weather":"https://www.google.com/search?q=weather%20London","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Eltham%20Greenwich%20London"],["Coffee","https://www.google.com/search?q=best%20coffee%20Eltham%20Greenwich%20London"],["Bakery","https://www.google.com/search?q=best%20bakery%20Eltham%20Greenwich%20London"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Eltham%20Greenwich%20London"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Eltham%20Greenwich%20London"],["Dessert","https://www.google.com/search?q=best%20dessert%20Eltham%20Greenwich%20London"]]},{"n":8,"date":"Mon 5 Oct","emoji":"🏰","title":"London","sub":"London exploring day","loc":"London","schedule":[["Morning","Choose one main London area"],["Lunch","Use Food links for current options"],["Afternoon","Local walk, museum or Thames / Greenwich option"],["Evening","Pub or easy dinner near accommodation"]],"accom":{"name":"Beautiful house in London","address":"36 Domonic Dr, London SE9 3LJ, UK","check":"Check-in after 4:00 pm · Check-out by 11:00 am","extra":"Self check-in with key safe · Host Sarah"},"transport":"Use Elizabeth line / Tube / buses depending on day plan.","port":null,"explore":[["Visit London","Official London visitor guide","https://www.visitlondon.com/"],["Time Out London","Neighbourhood guides, current events and things to do","https://www.timeout.com/london"],["Londonist","Local walks, hidden corners and practical London ideas","https://londonist.com/"],["Atlas Obscura London","Unusual and lesser-known places","https://www.atlasobscura.com/things-to-do/london-england"],["Visit Greenwich","Useful ideas close to your south-east London base","https://www.visitgreenwich.org.uk/"]],"food_base":"Eltham Greenwich London","notes":["Keep days flexible; use the Explore links rather than over-planning."],"cruise":false,"origin":"36 Domonic Dr, London SE9 3LJ, UK","quick":[["🚉 Mottingham Station","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Mottingham%20Station%2C%20London%20SE9"],["🚌 Domonic Drive Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Domonic%20Drive%20bus%20stop%2C%20London%20SE9"],["🛒 Co-op Food","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=Co-op%20Food%20Mottingham%2C%20London%20SE9"],["🍺 The Dutch House","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=36%20Domonic%20Dr%2C%20London%20SE9%203LJ%2C%20UK&destination=The%20Dutch%20House%2C%20Sidcup%20Road%2C%20London%20SE9"]],"weather":"https://www.google.com/search?q=weather%20London","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Eltham%20Greenwich%20London"],["Coffee","https://www.google.com/search?q=best%20coffee%20Eltham%20Greenwich%20London"],["Bakery","https://www.google.com/search?q=best%20bakery%20Eltham%20Greenwich%20London"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Eltham%20Greenwich%20London"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Eltham%20Greenwich%20London"],["Dessert","https://www.google.com/search?q=best%20dessert%20Eltham%20Greenwich%20London"]]},{"n":9,"date":"Tue 6 Oct","emoji":"🚄","title":"London → Paris","sub":"Eurostar to Marais","loc":"Paris","schedule":[["Morning","Check out London Airbnb by 11:00 am"],["09:30","Suggested transfer to London St Pancras"],["11:31","Eurostar departs London St Pancras International"],["14:59","Arrive Paris Gare du Nord"],["15:00+","Check in at Marais apartment"],["Evening","Short Marais walk and dinner"]],"accom":{"name":"Arthémis – 2 Bedrooms – Marais Village","address":"37 Rue de Montmorency, 75003 Paris, France","check":"Check-in 3:00 pm · Check-out 11:00 am","extra":"Host Rémy / Gaylor · 2 bedrooms"},"transport":"Eurostar Standard · Booking 4QQKRP · Coach 9 Seats 23 & 24","port":null,"explore":[["Paris je t’aime","Official Paris tourism site","https://parisjetaime.com/eng/"],["Time Out Paris","Events, neighbourhoods and things to do","https://www.timeout.com/paris"],["Atlas Obscura Paris","Unusual and hidden Paris sights","https://www.atlasobscura.com/things-to-do/paris-france"],["Paris by Mouth","Quality food and neighbourhood guides","https://parisbymouth.com/"],["Le Marais guide","Ideas around your Marais apartment","https://parisjetaime.com/eng/article/marais-a004"]],"food_base":"Le Marais Paris","notes":["Complete Eurostar Advance Passenger Information before tickets are issued."],"cruise":false,"origin":"37 Rue de Montmorency, 75003 Paris, France","quick":[["🚇 Réaumur–Sébastopol","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=R%C3%A9aumur%20-%20S%C3%A9bastopol%2C%20Paris"],["🚌 Réaumur–Arts et Métiers","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=R%C3%A9aumur%20-%20Arts%20et%20M%C3%A9tiers%2C%20Paris"],["🛒 Carrefour City","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=Carrefour%20City%2C%20Rue%20Beaubourg%2C%20Paris"],["🍺 The Frog & Rosbif","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=The%20Frog%20%26%20Rosbif%2C%20Paris"]],"weather":"https://www.google.com/search?q=weather%20Paris","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Le%20Marais%20Paris"],["Coffee","https://www.google.com/search?q=best%20coffee%20Le%20Marais%20Paris"],["Bakery","https://www.google.com/search?q=best%20bakery%20Le%20Marais%20Paris"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Le%20Marais%20Paris"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Le%20Marais%20Paris"],["Dessert","https://www.google.com/search?q=best%20dessert%20Le%20Marais%20Paris"]]},{"n":10,"date":"Wed 7 Oct","emoji":"🥐","title":"Paris","sub":"Marais and central Paris","loc":"Paris","schedule":[["Morning","Coffee and bakery near the apartment"],["Day","Choose 1–2 Paris areas only"],["Evening","Seine or Marais evening walk"]],"accom":{"name":"Arthémis – 2 Bedrooms – Marais Village","address":"37 Rue de Montmorency, 75003 Paris, France","check":"Check-in 3:00 pm · Check-out 11:00 am","extra":"Host Rémy / Gaylor · 2 bedrooms"},"transport":"Metro, walking or taxi as needed.","port":null,"explore":[["Paris je t’aime","Official Paris tourism site","https://parisjetaime.com/eng/"],["Time Out Paris","Events, neighbourhoods and things to do","https://www.timeout.com/paris"],["Atlas Obscura Paris","Unusual and hidden Paris sights","https://www.atlasobscura.com/things-to-do/paris-france"],["Paris by Mouth","Quality food and neighbourhood guides","https://parisbymouth.com/"],["Le Marais guide","Ideas around your Marais apartment","https://parisjetaime.com/eng/article/marais-a004"]],"food_base":"Le Marais Paris","notes":["Use Paris by Mouth for high-quality food ideas."],"cruise":false,"origin":"37 Rue de Montmorency, 75003 Paris, France","quick":[["🚇 Réaumur–Sébastopol","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=R%C3%A9aumur%20-%20S%C3%A9bastopol%2C%20Paris"],["🚌 Réaumur–Arts et Métiers","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=R%C3%A9aumur%20-%20Arts%20et%20M%C3%A9tiers%2C%20Paris"],["🛒 Carrefour City","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=Carrefour%20City%2C%20Rue%20Beaubourg%2C%20Paris"],["🍺 The Frog & Rosbif","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=The%20Frog%20%26%20Rosbif%2C%20Paris"]],"weather":"https://www.google.com/search?q=weather%20Paris","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Le%20Marais%20Paris"],["Coffee","https://www.google.com/search?q=best%20coffee%20Le%20Marais%20Paris"],["Bakery","https://www.google.com/search?q=best%20bakery%20Le%20Marais%20Paris"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Le%20Marais%20Paris"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Le%20Marais%20Paris"],["Dessert","https://www.google.com/search?q=best%20dessert%20Le%20Marais%20Paris"]]},{"n":11,"date":"Thu 8 Oct","emoji":"🗼","title":"Paris","sub":"Final Paris day","loc":"Paris","schedule":[["Morning","Main sightseeing or museum"],["Afternoon","Relaxed neighbourhood exploring"],["Evening","Pack for early train to Barcelona"]],"accom":{"name":"Arthémis – 2 Bedrooms – Marais Village","address":"37 Rue de Montmorency, 75003 Paris, France","check":"Check-in 3:00 pm · Check-out 11:00 am","extra":"Host Rémy / Gaylor · 2 bedrooms"},"transport":"Metro, walking or taxi as needed.","port":null,"explore":[["Paris je t’aime","Official Paris tourism site","https://parisjetaime.com/eng/"],["Time Out Paris","Events, neighbourhoods and things to do","https://www.timeout.com/paris"],["Atlas Obscura Paris","Unusual and hidden Paris sights","https://www.atlasobscura.com/things-to-do/paris-france"],["Paris by Mouth","Quality food and neighbourhood guides","https://parisbymouth.com/"],["Le Marais guide","Ideas around your Marais apartment","https://parisjetaime.com/eng/article/marais-a004"]],"food_base":"Le Marais Paris","notes":["Early train tomorrow from Gare de Lyon."],"cruise":false,"origin":"37 Rue de Montmorency, 75003 Paris, France","quick":[["🚇 Réaumur–Sébastopol","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=R%C3%A9aumur%20-%20S%C3%A9bastopol%2C%20Paris"],["🚌 Réaumur–Arts et Métiers","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=R%C3%A9aumur%20-%20Arts%20et%20M%C3%A9tiers%2C%20Paris"],["🛒 Carrefour City","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=Carrefour%20City%2C%20Rue%20Beaubourg%2C%20Paris"],["🍺 The Frog & Rosbif","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=37%20Rue%20de%20Montmorency%2C%2075003%20Paris%2C%20France&destination=The%20Frog%20%26%20Rosbif%2C%20Paris"]],"weather":"https://www.google.com/search?q=weather%20Paris","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Le%20Marais%20Paris"],["Coffee","https://www.google.com/search?q=best%20coffee%20Le%20Marais%20Paris"],["Bakery","https://www.google.com/search?q=best%20bakery%20Le%20Marais%20Paris"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Le%20Marais%20Paris"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Le%20Marais%20Paris"],["Dessert","https://www.google.com/search?q=best%20dessert%20Le%20Marais%20Paris"]]},{"n":12,"date":"Fri 9 Oct","emoji":"🚄","title":"Paris → Barcelona","sub":"TGV to Barcelona","loc":"Barcelona","schedule":[["Early","Check out and travel to Paris Gare de Lyon"],["07:42","TGV INOUI 9713 departs Paris Gare de Lyon"],["14:32","Arrive Barcelona Sants"],["15:00+","Check in Boutique Hotel H10 Montcada"],["Evening","Gothic Quarter / rooftop / easy tapas"]],"accom":{"name":"Boutique Hotel H10 Montcada","address":"Via Laietana 24, Ciutat Vella, 08003 Barcelona, Spain","check":"Check-in from 3:00 pm · Check-out until 12:00 pm","extra":"Confirmation 6491253602 · Non-refundable"},"transport":"SNCF TGV INOUI 9713 · Ref 4FXXBQ · 1st Class · Coach 12 Upper · Seats 253 & 254","port":null,"explore":[["Visit Barcelona","Official Barcelona tourism guide","https://www.barcelonaturisme.com/wv3/en/"],["Time Out Barcelona","Current events, neighbourhoods and things to do","https://www.timeout.com/barcelona"],["Barcelona Gothic Quarter","Official guide to the Barri Gòtic","https://www.barcelonaturisme.com/wv3/en/page/421/barri-gotic.html"],["Atlas Obscura Barcelona","Unusual Barcelona finds","https://www.atlasobscura.com/things-to-do/barcelona-spain"],["Visit Catalonia","Wider Catalonia travel ideas","https://www.catalunya.com/"]],"food_base":"Gothic Quarter Barcelona","notes":["Arrive at least 20 minutes early for train. Bring ID with tickets."],"cruise":false,"origin":"Boutique Hotel H10 Montcada, Via Laietana 24, 08003 Barcelona, Spain","quick":[["🚇 Jaume I Metro","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Boutique%20Hotel%20H10%20Montcada%2C%20Via%20Laietana%2024%2C%2008003%20Barcelona%2C%20Spain&destination=Jaume%20I%20Metro%20Station%2C%20Barcelona"],["🚌 Via Laietana Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Boutique%20Hotel%20H10%20Montcada%2C%20Via%20Laietana%2024%2C%2008003%20Barcelona%2C%20Spain&destination=Via%20Laietana%20-%20Pl%20Ramon%20Berenguer%2C%20Barcelona"],["🛒 Carrefour Express","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Boutique%20Hotel%20H10%20Montcada%2C%20Via%20Laietana%2024%2C%2008003%20Barcelona%2C%20Spain&destination=Carrefour%20Express%20Via%20Laietana%20Barcelona"],["🍺 Dunne's Irish Bar","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Boutique%20Hotel%20H10%20Montcada%2C%20Via%20Laietana%2024%2C%2008003%20Barcelona%2C%20Spain&destination=Dunne%27s%20Irish%20Bar%2C%20Via%20Laietana%2C%20Barcelona"]],"weather":"https://www.google.com/search?q=weather%20Barcelona","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Gothic%20Quarter%20Barcelona"],["Coffee","https://www.google.com/search?q=best%20coffee%20Gothic%20Quarter%20Barcelona"],["Bakery","https://www.google.com/search?q=best%20bakery%20Gothic%20Quarter%20Barcelona"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Gothic%20Quarter%20Barcelona"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Gothic%20Quarter%20Barcelona"],["Dessert","https://www.google.com/search?q=best%20dessert%20Gothic%20Quarter%20Barcelona"]]},{"n":13,"date":"Sat 10 Oct","emoji":"🚢","title":"Board Celebrity Equinox","sub":"Barcelona embarkation","loc":"Barcelona / Celebrity Equinox","schedule":[["Morning","Check out hotel by 12:00 pm"],["Midday","Transfer to Barcelona cruise terminal"],["Afternoon","Board Celebrity Equinox"],["17:00","Sail from Barcelona"],["Evening","Late dining confirmed"]],"accom":null,"transport":"Celebrity Equinox · Reservation 4634070 · Cabin 8302 · Veranda V2","port":"Barcelona embarkation · Moll d’Adossat cruise terminal","explore":[["Visit Barcelona","Official Barcelona tourism guide","https://www.barcelonaturisme.com/wv3/en/"],["Time Out Barcelona","Current ideas and local neighbourhoods","https://www.timeout.com/barcelona"],["Barcelona Lowdown","Practical independent Barcelona guide","https://barcelonalowdown.com/"],["Gothic Quarter guide","Good ideas near H10 Montcada","https://www.barcelona-tourist-guide.com/en/areas/barcelona-gothic-quarter.html"],["Atlas Obscura Barcelona","Unusual Barcelona finds","https://www.atlasobscura.com/things-to-do/barcelona-spain"]],"food_base":"Barcelona cruise terminal","notes":["Celebrity online check-in opens 45 days before sailing and must be completed at least 5 days before."],"cruise":false,"origin":"Boutique Hotel H10 Montcada Barcelona","quick":[],"weather":"https://www.google.com/search?q=weather+Barcelona+/+Celebrity+Equinox","food":[["Breakfast","https://www.google.com/search?q=best+breakfast+Barcelona+cruise+terminal"],["Coffee","https://www.google.com/search?q=best+coffee+Barcelona+cruise+terminal"],["Bakery","https://www.google.com/search?q=best+bakery+Barcelona+cruise+terminal"],["Pub / bar","https://www.google.com/search?q=best+pub+bar+Barcelona+cruise+terminal"],["Dinner","https://www.google.com/search?q=best+dinner+Barcelona+cruise+terminal"],["Dessert","https://www.google.com/search?q=best+dessert+Barcelona+cruise+terminal"]]},{"n":14,"date":"Sun 11 Oct","emoji":"🌊","title":"At Sea","sub":"Sea day","loc":"At sea","schedule":[["Day","Relax onboard"],["Evening","Late dining"]],"accom":null,"transport":"Celebrity Equinox · Cabin 8302","port":"Celebrity Equinox","explore":[],"food_base":"At sea","notes":["Cruise day: confirm all-aboard time on the Celebrity app or daily planner."],"cruise":true,"origin":"Celebrity Equinox cruise port","quick":[],"weather":"","food":[]},{"n":15,"date":"Mon 12 Oct","emoji":"🇲🇹","title":"Valletta","sub":"Malta port day","loc":"Valletta","schedule":[["Walk 10–15 min","Ship / Valletta cruise terminal → City Gate. No transport needed; start on foot."],["Walk 5 min","City Gate → Upper Barrakka Gardens for the Grand Harbour view."],["Walk 8 min","Upper Barrakka Gardens → St John’s Co-Cathedral."],["Walk 5–10 min","St John’s → Republic Street / Merchant Street wander."],["Walk 5–10 min","Old city laneways → lunch overlooking Grand Harbour or a shaded Valletta square."],["Walk 10–15 min","Lunch / central Valletta → cruise terminal. Browse slowly on the way back."]],"accom":null,"transport":"Independent port day. Walk from the cruise terminal into Valletta; no organised tour or hop-on bus planned.","port":"Valletta","explore":[["Visit Malta – Valletta","Official Malta visitor information","https://www.visitmalta.com/en/valletta/"],["Valletta cruise port","Port information for arrival planning","https://www.vallettacruiseport.com/"],["Time Out Malta","Food and things to do in Malta","https://www.timeout.com/malta"],["Atlas Obscura Malta","Unusual Malta sights","https://www.atlasobscura.com/things-to-do/malta"]],"food_base":"Valletta","notes":["Cruise Port Playbook added: follow the movement plan below for travel between sites.","No tour or bus needed — Valletta is compact and best done on foot.","If crowded, swap St John’s for more wandering or the National Museum of Archaeology."],"cruise":true,"origin":"Valletta cruise port","quick":[["🎟️ St John’s Co-Cathedral tickets","https://www.stjohnscocathedral.com/"],["🚢 Valletta cruise port","https://www.vallettacruiseport.com/"]],"weather":"https://www.google.com/search?q=weather+Valletta","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Valletta"],["Coffee","https://www.google.com/search?q=best%20coffee%20Valletta"],["Bakery","https://www.google.com/search?q=best%20bakery%20Valletta"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Valletta"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Valletta"],["Dessert","https://www.google.com/search?q=best%20dessert%20Valletta"]],"movementPlan":[["1","Ship → City Gate","Walk","10–15 min","Easy waterfront walk into the fortified city."],["2","City Gate → Upper Barrakka Gardens","Walk","5 min","Start with the Grand Harbour views before the streets get busy."],["3","Upper Barrakka → St John’s Co-Cathedral","Walk","8 min","Pre-book if you decide you definitely want to go inside."],["4","St John’s → lunch / waterfront area","Walk","5–10 min","Keep lunch close to the harbour or old city."],["5","Lunch → ship","Walk","15 min","Allow time to browse on the way back."]],"portTips":["No tour or bus needed — Valletta is compact and best done on foot.","If crowded, swap St John’s for more wandering or the National Museum of Archaeology."],"cruiseImage":"assets/cruise/valletta.jpg"},{"n":16,"date":"Tue 13 Oct","emoji":"🇮🇹","title":"Messina → Taormina & Castelmola","sub":"Sicily port day — coastal train, Taormina and Castelmola","loc":"Taormina / Castelmola","schedule":[["Walk 10 min","Ship → Messina Port / nearby station connection. Keep this simple and head straight for the coastal rail link."],["Train 50–60 min","Messina → Taormina-Giardini. This is now the preferred route: scenic coastal railway, no road traffic, and sea views."],["Taxi/local bus 10–15 min","Taormina-Giardini station → Taormina town. Use a taxi if one is waiting; otherwise use the local bus up the hill."],["Walk 5–10 min","Arrival point → Corso Umberto for the main pedestrian street, cafés and first wander."],["Walk 10–15 min","Corso Umberto → Ancient Greek Theatre. Worth it for the views over the Ionian Sea and Mount Etna as much as the ruins."],["Lunch 60–90 min","Lunch in Taormina with a view if possible. Keep this relaxed rather than trying to tick off too much."],["Taxi 10 min","Taormina → Castelmola. Short uphill taxi rather than wasting energy on the steep climb."],["Explore 45–60 min","Castelmola village: panoramic views, small streets, photos and a drink/coffee if time allows."],["Taxi 10–15 min","Castelmola → Taormina-Giardini station connection. Leave plenty of buffer for the return train."],["Train 50–60 min","Taormina-Giardini → Messina. Aim to be back at the port at least 90 minutes before sailing."]],"accom":null,"transport":"Independent Sicily day by coastal train to Taormina-Giardini, then short taxi/local bus transfers to Taormina and Castelmola. No organised tour planned.","port":"Messina","explore":[["Visit Sicily – Messina","Official Sicily tourism information","https://www.visitsicily.info/en/messina/"],["Messina tourism","City visitor information and highlights","https://www.visititaly.com/info/950986-messina.aspx"],["Sicily travel ideas","Wider Sicily inspiration","https://www.lonelyplanet.com/italy/sicily"],["Atlas Obscura Sicily","Unusual Sicily sights","https://www.atlasobscura.com/things-to-do/sicily-italy"]],"food_base":"Taormina","notes":["Cruise Port Playbook updated: scenic coastal train to Taormina-Giardini is now the preferred route.","Main day focus: Taormina, Greek Theatre, lunch with a view, then Castelmola if timing feels comfortable.","Plan B: skip Castelmola and enjoy a slower Taormina day if trains, heat or crowds make the day feel tight."],"cruise":true,"origin":"Messina cruise port","quick":[["🚆 Trenitalia","https://www.trenitalia.com/"],["🎟️ Ancient Theatre of Taormina","https://www.coopculture.it/en/poi/ancient-theatre-of-taormina/"],["🚕 Taormina-Giardini transfer search","https://www.google.com/search?q=Taormina-Giardini+station+taxi+to+Taormina"]],"weather":"https://www.google.com/search?q=weather+Taormina","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Messina"],["Coffee","https://www.google.com/search?q=best%20coffee%20Messina"],["Bakery","https://www.google.com/search?q=best%20bakery%20Messina"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Messina"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Messina"],["Dessert","https://www.google.com/search?q=best%20dessert%20Messina"]],"movementPlan":[["1","Ship → Messina station connection","Walk / taxi","10 min","Keep the port exit simple and head straight for the coastal rail link."],["2","Messina → Taormina-Giardini","Train","50–60 min","Preferred route: scenic coastal train with sea views and no road traffic."],["3","Taormina-Giardini station → Taormina","Taxi / local bus","10–15 min","Fastest way up the hill into the old town."],["4","Arrival point → Corso Umberto","Walk","5–10 min","Main pedestrian street for shops, cafés and atmosphere."],["5","Corso Umberto → Greek Theatre","Walk","10–15 min","Go mainly for the views over the coast and Mount Etna."],["6","Greek Theatre → lunch","Walk","5–10 min","Choose a view and slow the day down."],["7","Taormina → Castelmola","Taxi","10 min","Short uphill taxi rather than a steep walk."],["8","Castelmola village wander","Walk","45–60 min","Panoramic views, photos and a drink/coffee if time allows."],["9","Castelmola → Taormina-Giardini station","Taxi","10–15 min","Return with enough buffer for the train."],["10","Taormina-Giardini → Messina / ship","Train + walk","50–70 min","Aim to be back at the port at least 90 minutes before sailing."]],"portTips":["Use the train as the main transport: it is coastal, scenic and avoids road traffic.","Use taxis/local bus only for the hill transfers: station → Taormina and Taormina → Castelmola.","If the day starts feeling tight, skip Castelmola and linger in Taormina instead."],"cruiseImage":"assets/cruise/taormina.jpg"},{"n":17,"date":"Wed 14 Oct","emoji":"🍕","title":"Naples","sub":"Naples port day — no Pompeii","loc":"Naples","schedule":[["Taxi 15–20 min","Ship / cruise terminal → Naples historic centre. Use taxi/shuttle to avoid wasting the morning."],["Walk 5 min","Historic centre drop-off → Spaccanapoli."],["Walk 45–60 min","Spaccanapoli / historic laneways wander at your own pace. Coffee stop when it suits."],["Walk 5–10 min","Historic centre → pre-chosen pizza lunch. Reservation optional but useful if you pick a famous place."],["Taxi 10–15 min","Pizza lunch → Castel dell’Ovo / waterfront area. Save your legs rather than walking the whole distance."],["Walk 30–45 min","Castel dell’Ovo → waterfront promenade. Easy bay views and relaxed afternoon."],["Taxi 15–20 min","Waterfront → ship. Keep a comfortable buffer rather than cutting it fine."]],"accom":null,"transport":"Independent Naples day. Taxi/shuttle plus walking. Pompeii has been deliberately removed.","port":"Naples","explore":[["Visit Naples","Official Naples tourism information","https://www.visitnaples.eu/en"],["Time Out Naples","Food and things to do","https://www.timeout.com/naples"],["Atlas Obscura Naples","Unusual Naples sights","https://www.atlasobscura.com/things-to-do/naples-italy"],["Spaccanapoli","Historic centre walking spine for the Naples day","https://www.visitnaples.eu/en/neapolitanity/walk-naples/spaccanapoli"]],"food_base":"Naples historic centre pizza","notes":["Cruise Port Playbook added: follow the movement plan below for travel between sites.","This is a relaxed Naples day: old streets, pizza, coffee, waterfront — not Pompeii.","Plan B: if traffic is heavy, use Metro Line 1 from Toledo to Municipio."],"cruise":true,"origin":"Naples cruise port","quick":[["🍕 Naples pizza search","https://www.google.com/search?q=best+pizza+Naples+historic+centre"],["ℹ️ Visit Naples","https://www.visitnaples.eu/en"]],"weather":"https://www.google.com/search?q=weather+Naples","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Naples"],["Coffee","https://www.google.com/search?q=best%20coffee%20Naples"],["Bakery","https://www.google.com/search?q=best%20bakery%20Naples"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Naples"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Naples"],["Dessert","https://www.google.com/search?q=best%20dessert%20Naples"]],"movementPlan":[["1","Ship → historic centre","Taxi / shuttle","15–20 min","Worth paying to avoid wasting time at the start of the day."],["2","Historic centre → Spaccanapoli","Walk","5 min","Explore the laneways and old Naples atmosphere."],["3","Spaccanapoli → pizza lunch","Walk","5–10 min","Book if you choose a famous pizzeria. No Pompeii for this day."],["4","Lunch → Castel dell’Ovo","Taxi","10–15 min","Saves your legs and shifts you to the waterfront."],["5","Castel dell’Ovo → waterfront","Walk","10 min","Relaxed bay views and easy strolling."],["6","Waterfront → ship","Taxi","15–20 min","Comfortable finish with buffer."]],"portTips":["This is a relaxed Naples day: old streets, pizza, coffee, waterfront — not Pompeii.","Plan B: if traffic is heavy, use Metro Line 1 from Toledo to Municipio."],"cruiseImage":"assets/cruise/naples.jpg"},{"n":18,"date":"Thu 15 Oct","emoji":"🌊","title":"At Sea","sub":"Sea day","loc":"At sea","schedule":[["Day","Rest day onboard"],["Evening","Late dining"]],"accom":null,"transport":"Celebrity Equinox · Cabin 8302","port":"Celebrity Equinox","explore":[],"food_base":"At sea","notes":["Cruise day: confirm all-aboard time on the Celebrity app or daily planner."],"cruise":true,"origin":"Celebrity Equinox cruise port","quick":[],"weather":"","food":[]},{"n":19,"date":"Fri 16 Oct","emoji":"🏛️","title":"Rome / Civitavecchia","sub":"Rome port day","loc":"Rome","schedule":[["Shuttle/taxi 10–20 min","Ship → Civitavecchia station. Use port shuttle if required, then taxi if it saves time."],["Train 60–70 min","Civitavecchia → Rome. Best arrival station to be confirmed against October timetable and Colosseum ticket time."],["Metro/taxi 10–20 min","Rome arrival station → Colosseum. Taxi is fine if it protects the timed-entry slot."],["Visit 75–90 min","Colosseum timed entry. This is the main booked attraction for the day."],["Walk 5 min","Colosseum → Roman Forum viewpoints. View from outside unless you later choose to add Forum entry."],["Walk 10–12 min","Roman Forum / Via dei Fori Imperiali → Piazza Venezia."],["Walk 15 min","Piazza Venezia → Trevi Fountain."],["Walk 10 min","Trevi Fountain → Pantheon. Pre-book timed entry if available for your date."],["Walk 8 min","Pantheon → Piazza Navona."],["Walk 2–5 min","Piazza Navona → lunch nearby. This is the slow-down point, not another rushed attraction."],["Taxi 15–25 min","Lunch area → chosen Rome return station. Use taxi to save legs and protect timing."],["Train 60–70 min","Rome → Civitavecchia. Choose a return that gets you back to the port area at least 90 minutes before sailing."],["Taxi/shuttle 10–20 min","Civitavecchia station → ship. Do not rely on the last possible train."]],"accom":null,"transport":"Independent Rome day with premium logistics: pre-book Colosseum and Pantheon, use train/private transfer as best suited closer to departure, and taxi within Rome when it saves time.","port":"Rome","explore":[["Civitavecchia Port","Port information for cruise arrival","https://civitavecchia.portmobility.it/en"],["Turismo Roma","Official Rome visitor site","https://www.turismoroma.it/en"],["Rome in a day ideas","Practical Rome planning from Time Out","https://www.timeout.com/rome"],["Atlas Obscura Rome","Unusual Rome sights","https://www.atlasobscura.com/things-to-do/rome-italy"]],"food_base":"Piazza Navona / Pantheon Rome","notes":["Cruise Port Playbook added: follow the movement plan below for travel between sites.","Pre-book Colosseum timed entry and Pantheon entry. Skip the Vatican on this cruise day.","Latest safe return target: be back on the ship around 90 minutes before departure."],"cruise":true,"origin":"Rome cruise port","quick":[["🎟️ Colosseum official tickets","https://ticketing.colosseo.it/en/"],["🎟️ Pantheon official tickets","https://www.museiitaliani.it/en/museums/5d0f56ac-7abf-4d79-9005-8f17f7d0f77d"],["🚆 Trenitalia","https://www.trenitalia.com/en.html"],["🚢 Civitavecchia port mobility","https://civitavecchia.portmobility.it/en"]],"weather":"https://www.google.com/search?q=weather+Rome","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Rome"],["Coffee","https://www.google.com/search?q=best%20coffee%20Rome"],["Bakery","https://www.google.com/search?q=best%20bakery%20Rome"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Rome"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Rome"],["Dessert","https://www.google.com/search?q=best%20dessert%20Rome"]],"movementPlan":[["1","Ship → Civitavecchia station","Taxi / shuttle","10–15 min","Fastest practical way to start the day."],["2","Civitavecchia → Roma Termini","Train","60–70 min","Regional/express train; choose the best departure once final times are known."],["3","Roma Termini → Colosseum","Metro Line B / taxi","10–15 min","Metro to Colosseo is usually efficient; taxi if it saves time."],["4","Colosseum → Roman Forum viewpoint","Walk","5 min","Short walk to a panoramic viewpoint; no need to enter the Forum unless you want to."],["5","Roman Forum → Piazza Venezia","Walk","10 min","Down Via dei Fori Imperiali."],["6","Piazza Venezia → Trevi Fountain","Walk","15 min","Through the historic centre."],["7","Trevi Fountain → Pantheon","Walk","10 min","Have Pantheon timed entry if possible."],["8","Pantheon → Piazza Navona","Walk","8 min","Beautiful pedestrian streets."],["9","Piazza Navona → lunch","Walk","2–5 min","This is where to slow down."],["10","Lunch → Roma Termini","Taxi","15–20 min","Save legs and protect your return timing."],["11","Roma Termini → Civitavecchia","Train","60–70 min","Allow at least 90 minutes’ buffer before ship departure."],["12","Civitavecchia station → ship","Taxi / shuttle","10–15 min","Back to the ship without rushing."]],"portTips":["Pre-book Colosseum timed entry and Pantheon entry. Skip the Vatican on this cruise day.","Latest safe return target: be back on the ship around 90 minutes before departure.","Plan B: if trains are delayed, taxi/private transfer back to Civitavecchia."],"cruiseImage":"assets/cruise/rome.jpg"},{"n":20,"date":"Sat 17 Oct","emoji":"🥾","title":"La Spezia","sub":"Cinque Terre independent walking day","loc":"La Spezia","schedule":[["Taxi 10 min","Ship → La Spezia Centrale. Taxi is worth it to start early and save legs for the trails."],["Train 20–25 min","La Spezia Centrale → Vernazza."],["Walk 1.5–2 hrs","Vernazza → Corniglia. Main scenic hike; confirm trail status and carry water."],["Walk 10–15 min","Corniglia village → Corniglia station. Allow for the stairs / descent."],["Train 8–10 min","Corniglia → Manarola."],["Walk 20–30 min","Manarola → Riomaggiore via Via dell’Amore if open. If not open, take the train in 2–3 min."],["Train 15 min","Riomaggiore → La Spezia Centrale."],["Taxi 10 min","La Spezia Centrale → ship. Keep a buffer because trains and platforms can be crowded."]],"accom":null,"transport":"Independent Cinque Terre day by train plus two walks. Buy/confirm the Cinque Terre Train Card and trail status.","port":"La Spezia","explore":[["Visit La Spezia","Official local tourism information","https://www.visitspezia.it/en/"],["Cinque Terre National Park","Official park information","https://www.parconazionale5terre.it/Esentieri-outdoor.php"],["Visit Liguria","Wider Liguria ideas","https://www.visitliguria.it/en/"],["Atlas Obscura Liguria","Unusual Liguria sights","https://www.atlasobscura.com/things-to-do/liguria-italy"]],"food_base":"La Spezia","notes":["Cruise Port Playbook added: follow the movement plan below for travel between sites.","Buy/confirm the Cinque Terre Train Card and check trail status before the day.","Plan B: if trails are closed or weather is poor, use trains between villages and keep the day scenic but easy."],"cruise":true,"origin":"La Spezia cruise port","quick":[["🎟️ Cinque Terre Card / trail info","https://www.parconazionale5terre.it/Esentieri-outdoor.php"],["🚆 Trenitalia","https://www.trenitalia.com/en.html"]],"weather":"https://www.google.com/search?q=weather+La+Spezia","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20La%20Spezia"],["Coffee","https://www.google.com/search?q=best%20coffee%20La%20Spezia"],["Bakery","https://www.google.com/search?q=best%20bakery%20La%20Spezia"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20La%20Spezia"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20La%20Spezia"],["Dessert","https://www.google.com/search?q=best%20dessert%20La%20Spezia"]],"movementPlan":[["1","Ship → La Spezia Centrale","Taxi","10 min","Fastest option and worth the small fare."],["2","La Spezia → Vernazza","Train","20–25 min","Frequent regional trains."],["3","Vernazza → Corniglia","Walk","1½–2 hrs","Your main scenic hike."],["4","Corniglia → station","Walk","10 min","Down to the station after lunch."],["5","Corniglia → Manarola","Train","10 min","Short train ride."],["6","Manarola → Riomaggiore","Walk","20–30 min","Via dell’Amore if open; otherwise train 2–3 min."],["7","Riomaggiore → La Spezia","Train","15 min","Straight back toward the ship."]],"portTips":["Buy/confirm the Cinque Terre Train Card and check trail status before the day.","Plan B: if trails are closed or weather is poor, use trains between villages and keep the day scenic but easy."],"cruiseImage":"assets/cruise/laspezia.jpg"},{"n":21,"date":"Sun 18 Oct","emoji":"🇫🇷","title":"Villefranche / Nice","sub":"French Riviera port day","loc":"Villefranche-sur-Mer","schedule":[["Tender + walk 10 min","Ship tender → Villefranche station. Allow extra time if tender queues build."],["Train 10 min","Villefranche-sur-Mer → Nice-Ville or Nice Riquier, depending on the day’s starting point."],["Walk/tram 10–15 min","Nice station → Old Town. Use tram if you want to save steps."],["Walk 5 min","Old Town → Cours Saleya market / café area."],["Walk 10 min","Cours Saleya → Promenade des Anglais."],["Walk 5–10 min","Promenade / Old Town edge → relaxed Riviera lunch."],["Walk/tram 10–15 min","Lunch area → Nice station."],["Train 10 min","Nice → Villefranche-sur-Mer."],["Walk + tender 20–30 min","Villefranche station → tender → ship. Leave extra buffer because tender return queues can slow things down."]],"accom":null,"transport":"Independent French Riviera day by train to Nice, then walking/tram. Skip Monaco unless you specifically decide you want it later.","port":"Villefranche-sur-Mer","explore":[["Villefranche-sur-Mer tourism","Official town visitor information","https://www.villefranche-sur-mer.com/"],["Nice Côte d’Azur tourism","Official Nice and Riviera visitor guide","https://www.explorenicecotedazur.com/en/"],["French Riviera ideas","Time Out guide to the Côte d’Azur","https://www.timeout.com/france/french-riviera"],["Atlas Obscura Nice","Unusual places around Nice","https://www.atlasobscura.com/things-to-do/nice-france"]],"food_base":"Villefranche-sur-Mer","notes":["Cruise Port Playbook added: follow the movement plan below for travel between sites.","No tour needed. Train + walking is the cleanest way to do Nice.","Plan B: if trains are disrupted, taxis are available from Nice Ville."],"cruise":true,"origin":"Villefranche-sur-Mer cruise port","quick":[["🚆 SNCF Connect","https://www.sncf-connect.com/en-en/"],["ℹ️ Nice Côte d’Azur tourism","https://www.explorenicecotedazur.com/en/"]],"weather":"https://www.google.com/search?q=weather+Villefranche-sur-Mer","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Villefranche-sur-Mer"],["Coffee","https://www.google.com/search?q=best%20coffee%20Villefranche-sur-Mer"],["Bakery","https://www.google.com/search?q=best%20bakery%20Villefranche-sur-Mer"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Villefranche-sur-Mer"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Villefranche-sur-Mer"],["Dessert","https://www.google.com/search?q=best%20dessert%20Villefranche-sur-Mer"]],"movementPlan":[["1","Tender landing → Villefranche station","Walk","10 min","Easy waterfront walk."],["2","Villefranche → Nice Ville","Train","10 min","Very frequent service."],["3","Nice Ville → Old Town","Walk / tram","15 min","Walk if fresh; tram if saving energy."],["4","Old Town → Cours Saleya","Walk","5 min","Markets and cafés."],["5","Cours Saleya → Promenade des Anglais","Walk","10 min","Classic Riviera waterfront stroll."],["6","Promenade → lunch","Walk","5 min","Choose a relaxed beachfront or Old Town option."],["7","Lunch → Nice Ville","Walk / tram","15 min","Build in buffer."],["8","Nice → Villefranche","Train","10 min","Return early enough for tender queues."],["9","Station → tender → ship","Walk + tender","10–20 min","Allow for queues at the tender."]],"portTips":["No tour needed. Train + walking is the cleanest way to do Nice.","Plan B: if trains are disrupted, taxis are available from Nice Ville."],"cruiseImage":"assets/cruise/villefranche.jpg"},{"n":22,"date":"Mon 19 Oct","emoji":"🌊","title":"At Sea","sub":"Final sea day","loc":"At sea","schedule":[["Day","Pack and relax"],["Evening","Final cruise dinner"]],"accom":null,"transport":"Celebrity Equinox · Cabin 8302","port":"Celebrity Equinox","explore":[],"food_base":"At sea","notes":["Cruise day: confirm all-aboard time on the Celebrity app or daily planner."],"cruise":true,"origin":"Celebrity Equinox cruise port","quick":[],"weather":"","food":[]},{"n":23,"date":"Tue 20 Oct","emoji":"🇪🇸","title":"Barcelona","sub":"Disembark and overnight in Barcelona","loc":"Barcelona","schedule":[["05:00","Celebrity Equinox arrives Barcelona"],["Morning","Disembark and transfer from cruise port to Boutique Hotel H10 Montcada"],["15:00","Hotel check-in from 3:00 pm"],["Afternoon","Easy Gothic Quarter / waterfront exploring"],["Evening","Dinner near Gothic Quarter or El Born"]],"accom":{"name":"Boutique Hotel H10 Montcada","address":"Via Laietana, 24, Ciutat Vella, 08003 Barcelona, Spain","check":"Check-in Tue 20 Oct from 3:00 pm · Check-out Wed 21 Oct until 12:00 pm","extra":"Confirmation 6491286629 · Total €240.24 · Non-refundable"},"transport":"Disembark Celebrity Equinox in Barcelona, then overnight at H10 Montcada before the flight to London Gatwick next morning.","port":null,"explore":[["Visit Barcelona","Official Barcelona tourism guide","https://www.barcelonaturisme.com/wv3/en/"],["Time Out Barcelona","Current events, neighbourhoods and things to do","https://www.timeout.com/barcelona"],["Barcelona Gothic Quarter","Official guide to the Barri Gòtic","https://www.barcelonaturisme.com/wv3/en/page/421/barri-gotic.html"],["Atlas Obscura Barcelona","Unusual Barcelona finds","https://www.atlasobscura.com/things-to-do/barcelona-spain"],["Visit Catalonia","Wider Catalonia travel ideas","https://www.catalunya.com/"]],"food_base":"Gothic Quarter Barcelona","notes":["New Barcelona hotel booking added for 20–21 Oct.","City tax €18.48 is collected by the property.","Booking.com notes photo ID and credit card may be required at check-in."],"cruise":false,"origin":"Boutique Hotel H10 Montcada, Via Laietana 24, 08003 Barcelona, Spain","quick":[["🚇 Jaume I Metro","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Boutique%20Hotel%20H10%20Montcada%2C%20Via%20Laietana%2024%2C%2008003%20Barcelona%2C%20Spain&destination=Jaume%20I%20Metro%20Station%2C%20Barcelona"],["🚌 Via Laietana Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Boutique%20Hotel%20H10%20Montcada%2C%20Via%20Laietana%2024%2C%2008003%20Barcelona%2C%20Spain&destination=Via%20Laietana%20-%20Pl%20Ramon%20Berenguer%2C%20Barcelona"],["🛒 Carrefour Express","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Boutique%20Hotel%20H10%20Montcada%2C%20Via%20Laietana%2024%2C%2008003%20Barcelona%2C%20Spain&destination=Carrefour%20Express%20Via%20Laietana%20Barcelona"],["🍺 Dunne's Irish Bar","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Boutique%20Hotel%20H10%20Montcada%2C%20Via%20Laietana%2024%2C%2008003%20Barcelona%2C%20Spain&destination=Dunne%27s%20Irish%20Bar%2C%20Via%20Laietana%2C%20Barcelona"]],"weather":"https://www.google.com/search?q=weather%20Barcelona","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Gothic%20Quarter%20Barcelona"],["Coffee","https://www.google.com/search?q=best%20coffee%20Gothic%20Quarter%20Barcelona"],["Bakery","https://www.google.com/search?q=best%20bakery%20Gothic%20Quarter%20Barcelona"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Gothic%20Quarter%20Barcelona"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Gothic%20Quarter%20Barcelona"],["Dessert","https://www.google.com/search?q=best%20dessert%20Gothic%20Quarter%20Barcelona"]]},{"n":24,"date":"Wed 21 Oct","emoji":"✈️","title":"Barcelona → London Gatwick → Windsor","sub":"Fly to London and overnight in Windsor","loc":"Windsor","schedule":[["Morning","Check out H10 Montcada and transfer to Barcelona Airport"],["11:15","Vueling / Iberia IB5901 departs Barcelona (BCN)"],["12:40","Arrive London Gatwick (LGW)"],["Afternoon","Transfer from Gatwick to Windsor"],["15:00","Check in Macdonald Windsor"],["Evening","Easy Windsor dinner"]],"accom":{"name":"Macdonald Windsor","address":"23 High Street, Windsor SL4 1LH, United Kingdom","check":"Check-in 3:00 pm–12:00 am · Check-out 6:00–11:00 am","extra":"Confirmation 5158715572 · Pay at property"},"transport":"Barcelona (BCN) → London Gatwick (LGW), Wed 21 Oct, 11:15–12:40 · Direct 2h 25m · Economy · Iberia/Vueling IB5901 · Booking reference J2S9J. Includes 1 personal item, 1 cabin bag up to 10 kg and 1 checked bag up to 23 kg per passenger.","port":null,"explore":[["Visit Windsor","Official Windsor visitor guide","https://www.windsor.gov.uk/"],["Windsor Castle","Official Royal Collection visitor information","https://www.rct.uk/visit/windsor-castle"],["The Long Walk","Classic Windsor walk information","https://www.windsor.gov.uk/things-to-do/the-long-walk-p480271"],["Visit Thames","River and walk ideas around Windsor","https://www.visitthames.co.uk/"]],"food_base":"Windsor High Street","notes":["Important: Ann-Marie's birth year was entered as 1951 instead of 1950. Booking.com / Gotogate advised correcting it during online check-in or directly with the airline if required. The support transcript is in Today's Documents.","Flight booking added: BCN → LGW on Wed 21 Oct.","Seats are assigned at check-in.","Allow time for Gatwick arrivals, baggage, and transfer to Windsor."],"cruise":false,"origin":"Macdonald Windsor, 23 High Street, Windsor SL4 1LH, United Kingdom","quick":[["🚉 Windsor & Eton Central","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Macdonald%20Windsor%2C%2023%20High%20Street%2C%20Windsor%20SL4%201LH%2C%20United%20Kingdom&destination=Windsor%20%26%20Eton%20Central%20Station"],["🚌 Parish Church Stop","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Macdonald%20Windsor%2C%2023%20High%20Street%2C%20Windsor%20SL4%201LH%2C%20United%20Kingdom&destination=Parish%20Church%20bus%20stop%2C%20Windsor"],["🛒 Waitrose","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Macdonald%20Windsor%2C%2023%20High%20Street%2C%20Windsor%20SL4%201LH%2C%20United%20Kingdom&destination=Waitrose%20%26%20Partners%20Windsor"],["🍺 Duchess of Cambridge","https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=Macdonald%20Windsor%2C%2023%20High%20Street%2C%20Windsor%20SL4%201LH%2C%20United%20Kingdom&destination=The%20Duchess%20of%20Cambridge%20Pub%20Windsor"]],"weather":"https://www.google.com/search?q=weather+Windsor+Berkshire+UK","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Windsor%20High%20Street"],["Coffee","https://www.google.com/search?q=best%20coffee%20Windsor%20High%20Street"],["Bakery","https://www.google.com/search?q=best%20bakery%20Windsor%20High%20Street"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Windsor%20High%20Street"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Windsor%20High%20Street"],["Dessert","https://www.google.com/search?q=best%20dessert%20Windsor%20High%20Street"]]},{"n":25,"date":"Thu 22 Oct","emoji":"✈️","title":"Windsor → London Heathrow","sub":"Fly home via Kuala Lumpur","loc":"London / Kuala Lumpur","schedule":[["Morning","Check out Macdonald Windsor by 11:00 am"],["Day","Windsor / Heathrow buffer day"],["21:35","MH001 departs London Heathrow Terminal 4"],["17:50 Fri","Arrive Kuala Lumpur Terminal 1"]],"accom":null,"transport":"Malaysia Airlines MH001 · LHR 21:35 → KUL 17:50 (+1)","port":null,"explore":[["Visit Windsor","Official Windsor visitor guide","https://www.windsor.gov.uk/"],["Windsor Castle","Official Royal Collection visitor information","https://www.rct.uk/visit/windsor-castle"],["The Long Walk","Classic Windsor walk information","https://www.windsor.gov.uk/things-to-do/the-long-walk-p480271"],["Visit Thames","River and walk ideas around Windsor","https://www.visitthames.co.uk/"]],"food_base":"Windsor or Heathrow Terminal 4","notes":["Flight departs late evening; keep the day simple and leave plenty of Heathrow buffer."],"cruise":false,"origin":"Macdonald Windsor 23 High Street Windsor","quick":[],"weather":"https://www.google.com/search?q=weather+Windsor+Berkshire+UK%20UK","food":[["Breakfast","https://www.google.com/search?q=best%20breakfast%20Windsor%20High%20Street"],["Coffee","https://www.google.com/search?q=best%20coffee%20Windsor%20High%20Street"],["Bakery","https://www.google.com/search?q=best%20bakery%20Windsor%20High%20Street"],["Pub / bar","https://www.google.com/search?q=best%20pub%20bar%20Windsor%20High%20Street"],["Dinner","https://www.google.com/search?q=best%20restaurants%20dinner%20Windsor%20High%20Street"],["Dessert","https://www.google.com/search?q=best%20dessert%20Windsor%20High%20Street"]]},{"n":26,"date":"Fri 23 Oct","emoji":"✈️","title":"Kuala Lumpur stopover","sub":"Short return connection","loc":"Kuala Lumpur","schedule":[["17:50","Arrive Kuala Lumpur Terminal 1"],["2h 50m","Transit at KUL — stay airside"],["20:40","MH135 departs Kuala Lumpur"],["07:00 Sat","Arrive Brisbane"]],"accom":null,"transport":"Malaysia Airlines MH135 · KUL 20:40 → BNE 07:00 (+1)","port":null,"explore":[],"food_base":"KLIA Terminal 1","notes":["Shorter stopover than outbound. Stay close to gate / lounge."],"cruise":false,"origin":"Kuala Lumpur International Airport Terminal 1","quick":[],"weather":"","food":[]},{"n":27,"date":"Sat 24 Oct","emoji":"🏠","title":"Arrive Brisbane","sub":"Home arrival","loc":"Brisbane","schedule":[["07:00","Arrive Brisbane Terminal I"],["Morning","Immigration, baggage and travel home"],["Day","Rest, unpack lightly, recover"]],"accom":null,"transport":"Arrive Brisbane.","port":null,"explore":[],"food_base":"Brisbane Airport","notes":["Keep the day clear after the long flight."],"cruise":false,"origin":"Brisbane Airport","quick":[],"weather":"","food":[]}];
+const daysEl=document.getElementById('days'), app=document.getElementById('app');
+function esc(s){return String(s??'')}
+
+
+
+
+
+
+const SHARED_FILES_API = "/api/travel-files";
+
+function formatFileSize(bytes){
+  if(bytes < 1024) return `${bytes} B`;
+  if(bytes < 1024*1024) return `${Math.round(bytes/1024)} KB`;
+  return `${(bytes/(1024*1024)).toFixed(1)} MB`;
+}
+function escapeHtml(value){
+  return String(value).replace(/[&<>"']/g, ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+}
+async function loadDayFiles(day){
+  const res=await fetch(`${SHARED_FILES_API}?day=${day}`,{cache:"no-store"});
+  if(!res.ok) throw new Error("Could not load shared files");
+  return await res.json();
+}
+function renderDayFiles(day,files){
+  const list=document.getElementById("filelist");
+  const status=document.getElementById("filesstatus");
+  if(!list||!status) return;
+  if(!files.length){
+    list.innerHTML="";
+    status.textContent="No shared files for this day yet.";
+    return;
+  }
+  status.textContent=`${files.length} shared file${files.length===1?"":"s"}`;
+  list.innerHTML=files.map(file=>`<div class="sharedfile">
+    <div class="sharedfile-main"><span class="sharedfile-name">${escapeHtml(file.name)}</span><span class="sharedfile-meta">${formatFileSize(file.size)} · ${new Date(file.uploadedAt).toLocaleDateString()}</span></div>
+    <div class="sharedfile-actions"><a target="_blank" rel="noopener" href="${SHARED_FILES_API}?day=${day}&id=${encodeURIComponent(file.id)}">Open</a><button type="button" data-delete-file="${escapeHtml(file.id)}">Delete</button></div>
+  </div>`).join("");
+  list.querySelectorAll("[data-delete-file]").forEach(button=>button.addEventListener("click",async()=>{
+    const name=button.closest(".sharedfile").querySelector(".sharedfile-name").textContent;
+    if(!confirm(`Delete ${name} from this day?`)) return;
+    button.disabled=true;
+    status.textContent="Deleting file...";
+    try{
+      const res=await fetch(`${SHARED_FILES_API}?day=${day}&id=${encodeURIComponent(button.dataset.deleteFile)}`,{method:"DELETE"});
+      if(!res.ok) throw new Error((await res.json()).error||"Delete failed");
+      renderDayFiles(day,await loadDayFiles(day));
+    }catch(err){ status.textContent=err.message||"Could not delete file"; button.disabled=false; }
+  }));
+}
+async function wireDayFiles(day){
+  const input=document.getElementById("dayfiles");
+  const status=document.getElementById("filesstatus");
+  if(!input||!status) return;
+  try{ renderDayFiles(day,await loadDayFiles(day)); }
+  catch(err){ status.textContent="Could not load shared files"; }
+  input.addEventListener("change",async()=>{
+    const selected=[...input.files];
+    if(!selected.length) return;
+    for(const file of selected){
+      if(file.size > 3.5*1024*1024){ status.textContent=`${file.name} is larger than 3.5 MB`; continue; }
+      status.textContent=`Uploading ${file.name}...`;
+      try{
+        const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result).split(",")[1]);reader.onerror=()=>reject(reader.error);reader.readAsDataURL(file);});
+        const res=await fetch(`${SHARED_FILES_API}?day=${day}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:file.name,type:file.type,data})});
+        if(!res.ok){const detail=await res.json().catch(()=>({}));throw new Error(detail.error||`Could not upload ${file.name}`);}
+      }catch(err){ status.textContent=err.message||`Could not upload ${file.name}`; input.value=""; return; }
+    }
+    input.value="";
+    renderDayFiles(day,await loadDayFiles(day));
+  });
+}
+
+const SHARED_API = "/api/travel-notes";
+let sharedScoreState = null;
+let sharedNotes = {};
+let sharedDirty = false;
+let sharedActiveDay = null;
+let sharedTyping = false;
+
+function normaliseSharedNotes(state){
+  if(state && state.travelNotes && typeof state.travelNotes === "object") return state.travelNotes;
+  return {};
+}
+async function loadSharedState(){
+  const res = await fetch(SHARED_API, {cache:"no-store"});
+  if(!res.ok) throw new Error("Could not load shared notes");
+  const notes = await res.json();
+  sharedNotes = notes && typeof notes === "object" ? notes : {};
+  return sharedNotes;
+}
+async function saveSharedNotes(){
+  await fetch(SHARED_API,{
+    method:"PUT",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(sharedNotes)
+  }).then(res=>{ if(!res.ok) throw new Error("Could not save shared notes"); });
+}
+function renderEditableNotes(d){
+  return `<div class="card notesbox" id="notes"><h3 class="section-title">Shared Day Notes</h3>
+    <textarea id="daynote" placeholder="Add reminders, ideas or things you both want to remember for this day..."></textarea>
+    <div class="notesstatus" id="notesstatus">Loading shared notes...</div>
+    <div class="sharedfiles">
+      <h3 class="section-title">Shared Day Files</h3>
+      <div class="fileuploadrow">
+        <label class="filepick">＋ Add files<input id="dayfiles" type="file" multiple></label>
+        <span class="filehint">PDFs, tickets, screenshots and other files · maximum 3.5 MB each</span>
+      </div>
+      <div class="filesstatus" id="filesstatus">Loading shared files...</div>
+      <div class="filelist" id="filelist"></div>
+    </div>
+  </div>`;
+}
+async function wireNotes(d){
+  sharedActiveDay = d.n;
+  const box=document.getElementById("daynote");
+  const status=document.getElementById("notesstatus");
+  if(!box||!status) return;
+  const key=String(d.n);
+  try{
+    await loadSharedState();
+    box.value = sharedNotes[key] || "";
+    status.textContent = "Shared notes loaded";
+  }catch(err){
+    status.textContent = "Could not load shared notes";
+  }
+  let t;
+  box.addEventListener("input",()=>{
+    sharedTyping = true;
+    sharedNotes[key] = box.value;
+    status.textContent = "Saving...";
+    clearTimeout(t);
+    t=setTimeout(async()=>{
+      try{
+        await saveSharedNotes();
+        sharedDirty = false;
+        status.textContent = "✓ Shared";
+      }catch(err){
+        status.textContent = "Save failed — check internet";
+      }finally{
+        setTimeout(()=>{ sharedTyping=false; }, 600);
+      }
+    },900);
+  });
+}
+setInterval(async()=>{
+  if(sharedTyping || sharedActiveDay===null) return;
+  const box=document.getElementById("daynote");
+  const status=document.getElementById("notesstatus");
+  if(!box) return;
+  try{
+    await loadSharedState();
+    const latest = sharedNotes[String(sharedActiveDay)] || "";
+    if(document.activeElement !== box && box.value !== latest){
+      box.value = latest;
+      if(status) status.textContent = "Updated from shared notes";
+    }
+  }catch(err){}
+},5000);
+
+
+const firmScheduleDays = new Set([1, 2, 9, 12, 13, 23, 24, 25, 26, 27]);
+function hasFirmSchedule(d){ return firmScheduleDays.has(d.n); }
+function cleanSchedule(items){
+  const remove=[
+    "easy local dinner","early night","choose one","use food","local walk","museum or thames",
+    "pub or easy dinner","coffee and bakery","choose 1","seine or marais","main sightseeing",
+    "relaxed neighbourhood","pack for early train","gothic quarter / rooftop / easy tapas",
+    "easy gothic quarter","dinner near gothic","rest, unpack","recover","relax onboard",
+    "rest day onboard","pack and relax","final cruise dinner"
+  ];
+  return (items||[]).map(([t,v])=>{
+    let s=String(v);
+    s=s.replace("Full-day KUL stopover — lounge, rest, or quick city option","Kuala Lumpur stopover / layover");
+    s=s.replace("Immigration, baggage, coffee and transfer","Immigration, baggage and transfer");
+    s=s.replace("Early check-in may be possible if host confirms closer to arrival","Possible early check-in if confirmed by host");
+    s=s.replace("Short Marais walk and dinner","Check in / settle in Paris");
+    s=s.replace("Hotel check-in from 3:00 pm","Hotel check-in from 3:00 pm");
+    return [t,s];
+  }).filter(([t,v])=>{
+    const s=String(v).toLowerCase();
+    return !remove.some(x=>s.includes(x));
+  });
+}
+
+function renderMovementPlan(d){
+  let img=d.cruiseImage ? `<div class="card"><h3 class="section-title">Port route image <span class="muted" style="font-size:.8rem;font-weight:normal">— tap to enlarge</span></h3><button class="cruiseimgwrap" type="button" aria-label="Open ${d.title} route image full screen"><img class="cruiseimg" src="${d.cruiseImage}" alt="${d.title} cruise port route image"></button></div>` : '';
+  let table=(d.movementPlan&&d.movementPlan.length) ? `<div class="card" id="movement"><h3 class="section-title">Travel between sites</h3><div class="movementwrap"><table class="movementtable"><thead><tr><th>#</th><th>From → To</th><th>Mode</th><th>Approx. time</th><th>Notes</th></tr></thead><tbody>${d.movementPlan.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join('')}</tbody></table></div><div class="mobilemovement">${d.movementPlan.map(r=>`<div class="mvstep" data-num="${r[0]}"><div class="mvroute">${r[1]}</div><div class="mvmeta"><span>${r[2]}</span><span>${r[3]}</span></div></div>`).join('')}</div></div>` : '';
+  let tips=(d.portTips&&d.portTips.length) ? `<div class="card"><h3 class="section-title">Port notes / backup</h3><ul class="porttips">${d.portTips.map(x=>`<li>${x}</li>`).join('')}</ul></div>` : '';
+  return img + table + tips;
+}
+
+
+function itineraryDateISO(d){
+  const m={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,sept:8,oct:9,nov:10,dec:11};
+  const parts=String(d.date||'').split(/\s+/);
+  const day=parseInt(parts[1],10);
+  const mon=(parts[2]||'').toLowerCase().replace(/[^a-z]/g,'');
+  if(!day || !(mon in m)) return null;
+  const dt=new Date(Date.UTC(2026,m[mon],day));
+  return dt.toISOString().slice(0,10);
+}
+function renderWeatherCard(d){
+  if(!d.weather) return '';
+  const id=`weather-${d.n}`;
+  return `<div class="card weather" id="${id}" data-day="${d.n}">
+    <div class="weatherhead"><div><strong>⛅ Expected Weather</strong><div class="muted">${d.loc}</div></div><button class="weatherrefresh" type="button" data-weather-refresh="${d.n}">Refresh</button></div>
+    <div class="weathergrid"><div class="weatherpill"><small>Min</small><b>Loading…</b></div><div class="weatherpill"><small>Max</small><b>Loading…</b></div><div class="weatherpill"><small>Outlook</small><b>Loading…</b></div></div>
+    <div class="weatherstatus">Drawing live forecast data…</div>
+  </div>`;
+}
+function weatherLocation(d){
+  const loc=String(d.loc||'').trim();
+  const title=String(d.title||'').trim();
+  const key = title.includes('Messina') ? 'Messina / Taormina / Castelmola' : loc;
+  const map={
+    'At sea':null,
+    'London / Kuala Lumpur':{name:'London',lat:51.5072,lon:-0.1276},
+    'London':{name:'London',lat:51.5072,lon:-0.1276},
+    'Paris':{name:'Paris',lat:48.8566,lon:2.3522},
+    'Venice':{name:'Venice',lat:45.4408,lon:12.3155},
+    'Barcelona':{name:'Barcelona',lat:41.3874,lon:2.1686},
+    'Valletta':{name:'Valletta, Malta',lat:35.8997,lon:14.5146},
+    'Messina / Taormina / Castelmola':{name:'Taormina / Castelmola, Sicily',lat:37.8516,lon:15.2853},
+    'Taormina / Castelmola':{name:'Taormina / Castelmola, Sicily',lat:37.8516,lon:15.2853},
+    'Messina':{name:'Messina, Sicily',lat:38.1938,lon:15.5540},
+    'Naples':{name:'Naples, Italy',lat:40.8518,lon:14.2681},
+    'Rome':{name:'Rome, Italy',lat:41.9028,lon:12.4964},
+    'Civitavecchia / Rome':{name:'Rome, Italy',lat:41.9028,lon:12.4964},
+    'La Spezia':{name:'La Spezia / Cinque Terre, Italy',lat:44.1025,lon:9.8241},
+    'La Spezia / Cinque Terre':{name:'La Spezia / Cinque Terre, Italy',lat:44.1025,lon:9.8241},
+    'Villefranche-sur-Mer':{name:'Nice / Villefranche-sur-Mer, France',lat:43.7102,lon:7.2620},
+    'Windsor':{name:'Windsor, UK',lat:51.4817,lon:-0.6136},
+    'Kuala Lumpur':{name:'Kuala Lumpur',lat:3.1390,lon:101.6869},
+    'Brisbane':{name:'Brisbane, Australia',lat:-27.4705,lon:153.0260}
+  };
+  return map[key]!==undefined ? map[key] : {name:loc,search:loc};
+}
+
+function weatherCodeText(code){
+  const c=Number(code);
+  if([0].includes(c)) return 'Sunny';
+  if([1].includes(c)) return 'Mostly sunny';
+  if([2].includes(c)) return 'Partly cloudy';
+  if([3].includes(c)) return 'Mostly cloudy';
+  if([45,48].includes(c)) return 'Fog possible';
+  if([51,53,55,56,57].includes(c)) return 'Drizzle';
+  if([61,63,65,66,67,80,81,82].includes(c)) return 'Rain expected';
+  if([71,73,75,77,85,86].includes(c)) return 'Snow possible';
+  if([95,96,99].includes(c)) return 'Thunderstorms possible';
+  return 'Forecast available';
+}
+function weatherOutlook(code, rainProb, rainMm){
+  const prob = rainProb===null || rainProb===undefined ? 0 : Number(rainProb);
+  const mm = rainMm===null || rainMm===undefined ? 0 : Number(rainMm);
+  const coded = weatherCodeText(code);
+  if(/Thunder/.test(coded)) return 'Thunderstorms possible';
+  if(mm >= 20) return 'Heavy rain likely';
+  if(mm >= 8) return 'Rain likely';
+  if(mm >= 3 || prob >= 70) return 'Showers likely';
+  if(mm >= 1 || prob >= 45) return 'Showers possible';
+  if(mm > 0 || prob >= 20) return 'Slight shower chance';
+  return coded;
+}
+
+async function loadWeatherForDay(d){
+  const card=document.getElementById(`weather-${d.n}`);
+  if(!card) return;
+  const place=weatherLocation(d);
+  if(!place){card.querySelector('.weatherstatus').textContent='Weather not available for sea days.'; return;}
+  try{
+    let g=place;
+    if(g.search){
+      const geoUrl=`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(g.search)}&count=1&language=en&format=json`;
+      const geo=await fetch(geoUrl,{cache:'no-store'}).then(r=>r.json());
+      const found=geo && geo.results && geo.results[0];
+      if(!found) throw new Error('Location not found');
+      g={name:found.name + (found.country ? ', '+found.country : ''), lat:found.latitude, lon:found.longitude};
+    }
+    const fcUrl=`https://api.open-meteo.com/v1/forecast?latitude=${g.lat}&longitude=${g.lon}&daily=weather_code,temperature_2m_min,temperature_2m_max,precipitation_probability_max,precipitation_sum&timezone=auto&forecast_days=16`;
+    const fc=await fetch(fcUrl,{cache:'no-store'}).then(r=>r.json());
+    const target=itineraryDateISO(d);
+    const times=(fc.daily&&fc.daily.time)||[];
+    let idx=target ? times.indexOf(target) : -1;
+    let label='Trip-day forecast';
+    if(idx<0){ idx=0; label='Current outlook'; }
+    const min=Math.round(fc.daily.temperature_2m_min[idx]);
+    const max=Math.round(fc.daily.temperature_2m_max[idx]);
+    const rainProb=fc.daily.precipitation_probability_max[idx];
+    const rainMm=fc.daily.precipitation_sum[idx];
+    const code=(fc.daily.weather_code||[])[idx];
+    const outlook=weatherOutlook(code, rainProb, rainMm);
+    const pills=card.querySelectorAll('.weatherpill b');
+    pills[0].textContent=`Min ${min}°C`;
+    pills[1].textContent=`Max ${max}°C`;
+    pills[2].textContent=outlook;
+    let status=`${label} for ${g.name}.`;
+    if(label==='Current outlook' && target) status += ' Trip-date forecast will appear automatically once it is within the forecast window.';
+    if(rainMm!==null && rainMm!==undefined && Number(rainMm)>0) status += ` Forecast rainfall about ${Number(rainMm).toFixed(rainMm>=1?1:0)} mm.`;
+    card.querySelector('.weatherstatus').textContent=status;
+  }catch(e){
+    const pills=card.querySelectorAll('.weatherpill b');
+    if(pills[0]) pills[0].textContent='Unavailable';
+    if(pills[1]) pills[1].textContent='Unavailable';
+    const st=card.querySelector('.weatherstatus');
+    if(st) st.textContent='Live weather could not be loaded. Check your internet connection and tap Refresh.';
+  }
+}
+
+function renderDay(i){const d=days[i];document.querySelectorAll('.daybtn').forEach((b,j)=>b.classList.toggle('active',j===i));const pct=Math.round(((i+1)/days.length)*100);let accom='';if(d.accom){accom=`<div class="card accom"><h3 class="section-title">Accommodation</h3><strong>${d.accom.name}</strong><br><span>${d.accom.address}</span><br><span class="muted">${d.accom.check}</span><br><span class="muted">${d.accom.extra}</span><div style="margin-top:10px"><a class="linkitem" target="_blank" rel="noopener" href="https://www.google.com/maps/search/${encodeURIComponent(d.accom.address)}"><strong>Open accommodation in Google Maps</strong><span>›</span></a></div></div>`} else if(d.port) {accom=`<div class="card port"><h3 class="section-title">Port / location</h3><strong>${d.port}</strong><br><span class="muted">${d.transport||''}</span></div>`} else {accom=`<div class="card port"><h3 class="section-title">Travel / location</h3><strong>${d.loc}</strong><br><span class="muted">${d.transport||''}</span></div>`}
+let quick = d.quick && d.quick.length ? `<div class="card" id="quick"><h3 class="section-title">Quick links</h3><div class="quick4">${d.quick.map(([t,u])=>`<a target="_blank" rel="noopener" href="${u}">${t}</a>`).join('')}</div></div>` : '';
+app.innerHTML=`<div class="headline"><div class="bigemoji">${d.emoji}</div><div><h2>Day ${d.n} – ${d.title}</h2><p>${d.date} · ${d.sub}</p><div class="progress"><div style="width:${pct}%"></div></div><p class="muted">Day ${i+1} of ${days.length}</p></div></div>
+${renderWeatherCard(d)}
+${hasFirmSchedule(d) ? `<div class="card" id="schedule"><h3 class="section-title">Today at a glance</h3><div class="timeline">${cleanSchedule(d.schedule).map(([t,v])=>`<div class="tl"><span class="time">${t}</span><strong>${v}</strong></div>`).join('')}</div></div>` : ''}
+${renderEditableNotes(d)}
+<div class="twocol">${accom}<div class="card"><h3 class="section-title">Transport / tickets</h3>${d.transport||'No transport booked for this day.'}</div></div>
+${renderTodayDocs(d)}
+${renderMovementPlan(d)}
+${quick}
+${(d.explore||[]).length ? `<div class="card" id="explore"><h3 class="section-title">Recommendations & ideas</h3><div class="explore">${d.explore.map(([name,desc,url])=>`<a target="_blank" rel="noopener" href="${url}"><strong>${name}</strong><small>${desc}</small></a>`).join('')}</div></div>` : (d.cruise ? `<div class="card" id="explore"><h3 class="section-title">Recommendations & ideas</h3><div class="explore"><span class="muted">Sea day — enjoy the ship and check the Celebrity app for onboard activities.</span></div></div>` : '')}
+${d.food && d.food.length ? `<div class="card" id="food"><h3 class="section-title">Food links</h3><div class="linkgrid">${d.food.map(([name,url])=>`<a class="linkitem" target="_blank" rel="noopener" href="${url}"><span><strong>${name}</strong><small>Google search for current ratings and opening hours</small></span><span>›</span></a>`).join('')}</div></div>` : ''}
+`;wireNotes(d);wireDayFiles(d.n);loadWeatherForDay(d);
+  currentDayIndex=i;
+  const activeBtn=document.querySelectorAll('.daybtn')[i];
+  if(activeBtn) activeBtn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  if(!restoringView) window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function openDocSheet(file,name,detail){
+  const info=docInfo[file]||{icon:"📄",title:name,summary:detail,details:["Open the original PDF if you need the full booking confirmation."]};
+  document.getElementById("docsheet-title").textContent=`${info.icon||"📄"} ${info.title||name}`;
+  document.getElementById("docsheet-summary").textContent=info.summary||detail||"";
+  document.getElementById("docsheet-list").innerHTML=(info.details||[]).map(x=>`<li>${x}</li>`).join("");
+  const returnDay=days[currentDayIndex]?.n||1;
+  const returnScroll=Math.max(0,Math.round(window.scrollY));
+  sessionStorage.setItem("itineraryReturnDay",String(returnDay));
+  sessionStorage.setItem("itineraryReturnScroll",String(returnScroll));
+  document.getElementById("docsheet-open").href=`viewer.html?file=${encodeURIComponent(file)}&title=${encodeURIComponent(info.title||name)}&day=${encodeURIComponent(returnDay)}&scroll=${encodeURIComponent(returnScroll)}`;
+  document.getElementById("docsheet-open").target="_self";
+  const sheet=document.getElementById("docsheet");
+  sheet.classList.add("show");
+  sheet.setAttribute("aria-hidden","false");
+}
+function closeDocSheet(){
+  const sheet=document.getElementById("docsheet");
+  if(!sheet) return;
+  sheet.classList.remove("show");
+  sheet.setAttribute("aria-hidden","true");
+}
+document.addEventListener("click",(ev)=>{
+  const btn=ev.target.closest(".docopen");
+  if(btn){
+    ev.preventDefault();
+    openDocSheet(btn.dataset.file,btn.dataset.name,btn.dataset.detail);
+    return;
+  }
+  if(ev.target.id==="docsheet-close" || ev.target.id==="docsheet-cancel" || ev.target.id==="docsheet"){
+    closeDocSheet();
+  }
+});
+document.addEventListener("keydown",(ev)=>{ if(ev.key==="Escape") closeDocSheet(); });
+
+
+document.addEventListener('click',(ev)=>{
+  const btn=ev.target.closest('[data-weather-refresh]');
+  if(btn){ const d=days.find(x=>String(x.n)===String(btn.dataset.weatherRefresh)); if(d) loadWeatherForDay(d); }
+});
+
+let currentDayIndex=0;
+let restoringView=false;
+days.forEach((d,i)=>{
+  const b=document.createElement('button');
+  b.className='daybtn'+(i===0?' active':'');
+  b.innerHTML=`<span class="emoji">${d.emoji}</span><span class="dnum">Day ${d.n}</span><br><span class="ddate">${d.date.split(' ').slice(1).join(' ')}</span>`;
+  b.addEventListener('click',()=>{
+    history.replaceState(null,"",`index.html?day=${encodeURIComponent(d.n)}`);
+    renderDay(i);
+  });
+  daysEl.appendChild(b);
+});
+const startupParams=new URLSearchParams(location.search);
+const savedDay=Number(startupParams.get("day")||sessionStorage.getItem("itineraryReturnDay")||1);
+const savedScroll=Number(startupParams.get("scroll")||sessionStorage.getItem("itineraryReturnScroll")||0);
+const foundStartupIndex=days.findIndex(d=>d.n===savedDay);
+const startupIndex=foundStartupIndex>=0?foundStartupIndex:0;
+restoringView=true;
+renderDay(startupIndex);
+requestAnimationFrame(()=>{
+  requestAnimationFrame(()=>{
+    window.scrollTo({top:Number.isFinite(savedScroll)?savedScroll:0,behavior:"auto"});
+    restoringView=false;
+    sessionStorage.removeItem("itineraryReturnDay");
+    sessionStorage.removeItem("itineraryReturnScroll");
+  });
+});
+</script><script>
+function ensureLB(){
+ let lb=document.getElementById('lb');
+ if(!lb){
+   lb=document.createElement('div');
+   lb.id='lb';
+   lb.className='lightbox';
+   lb.setAttribute('role','dialog');
+   lb.setAttribute('aria-modal','true');
+   lb.innerHTML='<button class="lbclose" type="button" aria-label="Close image">&times;</button><img alt="Expanded cruise route image">';
+   document.body.appendChild(lb);
+   lb.addEventListener('click',function(e){if(e.target===lb || e.target.classList.contains('lbclose')) closeLB();});
+ }
+ return lb;
+}
+function openLB(src){
+ const lb=ensureLB();
+ lb.querySelector('img').src=src;
+ lb.classList.add('open');
+ document.body.style.overflow='hidden';
+}
+function closeLB(){
+ const lb=document.getElementById('lb');
+ if(lb) lb.classList.remove('open');
+ document.body.style.overflow='';
+}
+document.addEventListener('click',function(e){
+ const img=e.target.closest('.cruiseimg');
+ if(img){ e.preventDefault(); openLB(img.currentSrc || img.src); }
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape') closeLB();});
+</script></body></html>
