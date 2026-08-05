@@ -1,4 +1,4 @@
-const { getStore } = require("@netlify/blobs");
+const { connectLambda, getStore } = require("@netlify/blobs");
 const { randomUUID } = require("node:crypto");
 
 const STORE_NAME = "europe-day-files";
@@ -47,6 +47,10 @@ async function writeIndex(store, day, files) {
 }
 
 exports.handler = async (event) => {
+  // Lambda-compatible Netlify Functions must initialise the Blobs context
+  // from the incoming event before accessing a store.
+  connectLambda(event);
+
   const method = event.httpMethod;
   const params = event.queryStringParameters || {};
   const day = validDay(params.day);
